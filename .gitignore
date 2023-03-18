@@ -1,3 +1,8 @@
+# Package managers
+bun.lockb
+yarn-lock.json
+package-lock.json
+
 # Logs
 logs
 *.log
