@@ -10,8 +10,8 @@ export default function App() {
 
     const response = await openai.createCompletion({
       model: "text-davinci-001",
-      prompt: "Give an inspiration quote from lebron james",
-      temperature: 0.4,
+      prompt: "Inspire me with a quote from not Lebron James or Steve Jobs and then always add emoji after the quote.",
+      temperature: .8,
       max_tokens: 64,
       top_p: 1,
       frequency_penalty: 0,
@@ -19,11 +19,13 @@ export default function App() {
     });
 
     console.log(response.data.choices[0].text);
+
   };
 
   return (
     <div className="App">
-      <button onClick={getQuote}>Click me</button>
+      <button onClick={getQuote}>Inspire me</button>
+      
     </div>
   );
 }
