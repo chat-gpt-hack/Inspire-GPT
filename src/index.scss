@@ -1,0 +1,19 @@
+* {
+  border: 0;
+  padding: 0;
+}
+
+*,
+*::after,
+::before {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #232323;
+  color: white;
+}
+
+button {
+  cursor: pointer;
+}
