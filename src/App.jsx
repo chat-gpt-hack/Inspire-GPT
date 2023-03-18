@@ -18,13 +18,17 @@ export default function App() {
       presence_penalty: 0,
     });
 
-    console.log(response.data.choices[0].text);
+    const quote = response.data.choices[0].text;
+
+    console.log(quote);
 
   };
 
   return (
     <div className="App">
       <button onClick={getQuote}>Inspire me</button>
+      
+
       
     </div>
   );
