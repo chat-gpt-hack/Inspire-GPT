@@ -1,3 +1,4 @@
+import axios from "axios";
 import { Configuration, OpenAIApi } from "openai";
 
 export default function App() {
@@ -9,8 +10,8 @@ export default function App() {
     const openai = new OpenAIApi(configuration);
 
     const response = await openai.createCompletion({
-      model: "text-davinci-001",
-      prompt: "Give an inspiration quote from lebron james",
+      model: "text-davinci-003",
+      prompt: "Give coma separated extensive list of famous athletes",
       temperature: 0.4,
       max_tokens: 64,
       top_p: 1,
@@ -18,7 +19,7 @@ export default function App() {
       presence_penalty: 0,
     });
 
-    console.log(response.data.choices[0].text);
+    console.log(response.data.choices);
   };
 
   return (
