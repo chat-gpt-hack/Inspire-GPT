@@ -22,9 +22,19 @@ export default function App() {
     console.log(response.data.choices);
   };
 
+  const getImage = async (str) => {
+    const res = await axios(
+      `https://api.unsplash.com/search/photos?page=1&query=office&client_id=${
+        import.meta.env.VITE_SPLASH_AKEY
+      }`
+    );
+    console.log(res.data);
+  };
+
   return (
     <div className="App">
       <button onClick={getQuote}>Click me</button>
+      <button onClick={getImage}>Get image</button>
     </div>
   );
 }
