@@ -1,6 +1,8 @@
 import axios from "axios";
 import { Configuration, OpenAIApi } from "openai";
 
+let inspQuote = '';
+
 export default function App() {
   const getQuote = async () => {
     const configuration = new Configuration({
@@ -23,6 +25,10 @@ export default function App() {
 
     console.log(quote);
 
+
+
+
+
   //  function displ
   };
 
@@ -35,10 +41,17 @@ export default function App() {
     console.log(res.data);
   };
 
+//    const image =
+
+
+
   return (
     <div className="App">
       <button className='quoteButton' onClick={getQuote}>Get Quote</button>
       <button className='imgButton' onClick={getImage}>Get Image</button>
+      <p onClick={getQuote.quote}>Quote goes here</p>
+      <img src='https://piratediffusion1.s3.amazonaws.com/renders2/XMd4DN/00001-r-pro-iy8b36a.jpg' />
+
     </div>
   );
 }
