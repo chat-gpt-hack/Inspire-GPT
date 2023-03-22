@@ -23,7 +23,7 @@ export default function App() {
 
     const quote = response.data.choices[0].text;
 
-    <p>{quote}</p>;
+   // <p>{quote}</p>;
     console.log(quote);
 
 
