@@ -3,16 +3,16 @@ import { Configuration, OpenAIApi } from "openai";
 import { useState } from "react";
 import Header from './components/Header';
 
-
 export default function App() {
-    const [quote, setQuote] = useState("");
-    const [imageUrl, setImageUrl] = useState("");
-    const getQuote = async() => {
-        const configuration = new Configuration({
-            apiKey: import.meta.env.VITE_CHAT_KEY,
-        });
+  const [quote, setQuote] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+  const getQuote = async () => {
+    const configuration = new Configuration({
+      apiKey: import.meta.env.VITE_CHAT_KEY,
+    });
 
-        const openai = new OpenAIApi(configuration);
+    const openai = new OpenAIApi(configuration);
+
 
         const response = await openai.createCompletion({
             // What dataset/model to use via the api, there are more options if we go for hugginface i think... maybe check it out.
@@ -30,17 +30,19 @@ export default function App() {
         const prompt = response.data.choices[0].text.replace(/[^a-zA-Z ]/g, "");
         const unsplashUrl = `https://api.unsplash.com/photos/random?client_id=${import.meta.env.VITE_SPLASH_AKEY}&query=${prompt}`;
 
-        fetch(unsplashUrl)
-            .then(response => response.json())
-            .then(data => {
-                setImageUrl(data.urls.regular);
-            })
-            .catch(error => {
-                console.error(error);
-            });
 
-        setQuote(response.data.choices[0].text);
-    };
+    fetch(unsplashUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        setImageUrl(data.urls.regular);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
+    setQuote(response.data.choices[0].text);
+  };
+
 
     return (
       <>
