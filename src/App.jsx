@@ -1,58 +1,60 @@
 import axios from "axios";
 import { Configuration, OpenAIApi } from "openai";
+import { useState } from "react";
 
-let inspQuote = '';
 
 export default function App() {
-  const getQuote = async () => {
-    const configuration = new Configuration({
-      apiKey: import.meta.env.VITE_CHAT_KEY,
-    });
+    const [quote, setQuote] = useState("");
+    const [imageUrl, setImageUrl] = useState("");
+    const getQuote = async() => {
+        const configuration = new Configuration({
+            apiKey: import.meta.env.VITE_CHAT_KEY,
+        });
 
-    const openai = new OpenAIApi(configuration);
+        const openai = new OpenAIApi(configuration);
 
-    const response = await openai.createCompletion({
-      model: "text-davinci-003",
-      prompt: "Give an inspiration quote from not lebron james",
-      temperature: 0.4,
-      max_tokens: 64,
-      top_p: 1,
-      frequency_penalty: 0,
-      presence_penalty: 0,
-    });
+        const response = await openai.createCompletion({
+            // What dataset/model to use via the api, there are more options if we go for hugginface i think... maybe check it out.
+            model: "text-davinci-001",
+            //The promt given to chatgpt the better the promt the better the responce should be
+            prompt: "Give an inspiration quote from a famous person please",
+            // Temp is from 0.0 - 2.0 and you can think of it as how crazy should the text be, from moderately to craycray
+            temperature: 0.8,
+            max_tokens: 64,
+            top_p: 1,
+            frequency_penalty: 0,
+            presence_penalty: 0,
+        });
+        // Start of image fetching thingy why the slash g?
+        const prompt = response.data.choices[0].text.replace(/[^a-zA-Z ]/g, "");
+        const unsplashUrl = `https://api.unsplash.com/photos/random?client_id=${import.meta.env.VITE_UN_ACC}&query=${prompt}`;
 
-    const quote = response.data.choices[0].text;
+        fetch(unsplashUrl)
+            .then(response => response.json())
+            .then(data => {
+                setImageUrl(data.urls.regular);
+            })
+            .catch(error => {
+                console.error(error);
+            });
 
-   // <p>{quote}</p>;
-    console.log(quote);
+        setQuote(response.data.choices[0].text);
+    };
 
-
-
-
-
-  //  function displ
-  };
-
-  const getImage = async (str) => {
-    const res = await axios(
-      `https://api.unsplash.com/search/photos?page=1&query=office&client_id=${
-        import.meta.env.VITE_SPLASH_AKEY
-      }`
+    return ( <
+        div className = "App" >
+        <
+        button onClick = { getQuote } > Generate Quote < /button> {
+            quote && imageUrl && ( <
+                div className = "quote-container" >
+                <
+                img src = { imageUrl }
+                alt = "Unsplash" / >
+                <
+                p className = "quote" > { quote } < /p> <
+                /div>
+            )
+        } <
+        /div>
     );
-    console.log(res.data);
-  };
-
-//    const image =
-
-
-
-  return (
-    <div className="App">
-      <button className='quoteButton' onClick={getQuote}>Get Quote</button>
-      <button className='imgButton' onClick={getImage}>Get Image</button>
-      <p onClick={getQuote.quote}>Quote goes here</p>
-      <img src='https://piratediffusion1.s3.amazonaws.com/renders2/XMd4DN/00001-r-pro-iy8b36a.jpg' />
-
-    </div>
-  );
 }
