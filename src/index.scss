@@ -1,5 +1,5 @@
 $primary-color: #4d8800;
-$secondary-color: #DC9596;
+$secondary-color: #dc9596;
 body {
   background-color: $secondary-color;
   font-family: Arial, sans-serif;
@@ -19,7 +19,7 @@ body {
   z-index: 1;
   text-align: center;
   margin: auto;
-  background: linear-gradient(0deg, #2BD9FE 0%, #2C497F 100%);
+  background: linear-gradient(0deg, #2bd9fe 0%, #2c497f 100%);
 }
 
 .App {
@@ -44,14 +44,15 @@ body {
     margin-top: 20vw;
     margin: 0 auto;
     button {
-        margin-top: 20px;
+      margin-top: 20px;
     }
     .quote-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
     }
+  }
 }
 
 button {
