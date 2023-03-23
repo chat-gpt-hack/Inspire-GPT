@@ -1,6 +1,7 @@
 import axios from "axios";
 import { Configuration, OpenAIApi } from "openai";
 import { useState } from "react";
+import Header from './components/Header';
 
 
 export default function App() {
@@ -27,7 +28,7 @@ export default function App() {
         });
         // Start of image fetching thingy why the slash g?
         const prompt = response.data.choices[0].text.replace(/[^a-zA-Z ]/g, "");
-        const unsplashUrl = `https://api.unsplash.com/photos/random?client_id=${import.meta.env.VITE_UN_ACC}&query=${prompt}`;
+        const unsplashUrl = `https://api.unsplash.com/photos/random?client_id=${import.meta.env.VITE_SPLASH_AKEY}&query=${prompt}`;
 
         fetch(unsplashUrl)
             .then(response => response.json())
@@ -41,13 +42,16 @@ export default function App() {
         setQuote(response.data.choices[0].text);
     };
 
-    return (<div className = "App">
-        <button onClick = { getQuote } > Generate Quote </button> {
-            quote && imageUrl && (<div className = "quote-container">
-                <img src = { imageUrl } alt = "Unsplash" />
-                <p className = "quote"> { quote } </p> 
-                </div>
-            )
+    return (
+      <>
+      <Header />
+        <div className = "App">
+          <button onClick = { getQuote } > Generate Quote </button> {
+              quote && imageUrl && (<div className = "quote-container">
+                  <img src = { imageUrl } alt = "Unsplash" />
+                  <p className = "quote"> { quote } </p> 
+                  </div>)
         } </div>
+      </>
     );
 }
