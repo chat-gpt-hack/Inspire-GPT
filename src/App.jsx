@@ -41,20 +41,13 @@ export default function App() {
         setQuote(response.data.choices[0].text);
     };
 
-    return ( <
-        div className = "App" >
-        <
-        button onClick = { getQuote } > Generate Quote < /button> {
-            quote && imageUrl && ( <
-                div className = "quote-container" >
-                <
-                img src = { imageUrl }
-                alt = "Unsplash" / >
-                <
-                p className = "quote" > { quote } < /p> <
-                /div>
+    return (<div className = "App">
+        <button onClick = { getQuote } > Generate Quote </button> {
+            quote && imageUrl && (<div className = "quote-container">
+                <img src = { imageUrl } alt = "Unsplash" />
+                <p className = "quote"> { quote } </p> 
+                </div>
             )
-        } <
-        /div>
+        } </div>
     );
 }
