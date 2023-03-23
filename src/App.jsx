@@ -1,7 +1,10 @@
 import axios from "axios";
 import { Configuration, OpenAIApi } from "openai";
+import { useState } from "react";
 
 export default function App() {
+  const [quote, setQuote] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
   const getQuote = async () => {
     const configuration = new Configuration({
       apiKey: import.meta.env.VITE_CHAT_KEY,
