@@ -1,6 +1,7 @@
 import axios from "axios";
 import { Configuration, OpenAIApi } from "openai";
 import { useState } from "react";
+import Header from "./components/Header";
 
 export default function App() {
   const [quote, setQuote] = useState("");
@@ -13,31 +14,47 @@ export default function App() {
     const openai = new OpenAIApi(configuration);
 
     const response = await openai.createCompletion({
-      model: "text-davinci-003",
-      prompt: "Give coma separated extensive list of famous athletes",
-      temperature: 0.4,
+      // What dataset/model to use via the api, there are more options if we go for hugginface i think... maybe check it out.
+      model: "text-davinci-001",
+      //The promt given to chatgpt the better the promt the better the responce should be
+      prompt: "Give an inspiration quote from a famous person please",
+      // Temp is from 0.0 - 2.0 and you can think of it as how crazy should the text be, from moderately to craycray
+      temperature: 0.8,
       max_tokens: 64,
       top_p: 1,
       frequency_penalty: 0,
       presence_penalty: 0,
     });
+    // Start of image fetching thingy why the slash g?
+    const prompt = response.data.choices[0].text.replace(/[^a-zA-Z ]/g, "");
+    const unsplashUrl = `https://api.unsplash.com/photos/random?client_id=${
+      import.meta.env.VITE_SPLASH_AKEY
+    }&query=${prompt}`;
 
-    console.log(response.data.choices);
-  };
+    fetch(unsplashUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        setImageUrl(data.urls.regular);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
 
-  const getImage = async (str) => {
-    const res = await axios(
-      `https://api.unsplash.com/search/photos?page=1&query=office&client_id=${
-        import.meta.env.VITE_SPLASH_AKEY
-      }`
-    );
-    console.log(res.data);
+    setQuote(response.data.choices[0].text);
   };
 
   return (
-    <div className="App">
-      <button onClick={getQuote}>Click me</button>
-      <button onClick={getImage}>Get image</button>
-    </div>
+    <>
+      <Header />
+      <div className="App">
+        <button onClick={getQuote}> Generate Quote </button>{" "}
+        {quote && imageUrl && (
+          <div className="quote-container">
+            <img src={imageUrl} alt="Unsplash" />
+            <p className="quote"> {quote} </p>
+          </div>
+        )}{" "}
+      </div>
+    </>
   );
 }
