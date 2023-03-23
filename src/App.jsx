@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Header from "./components/Header";
-import { getQuote } from "./utils/fetchData";
+import { getImage, getQuote } from "./utils/fetchData";
 import famousList from "./utils/famousList";
 
 export default function App() {
@@ -10,25 +10,25 @@ export default function App() {
   const generateHandler = async () => {
     // * Add a new function in utils to randomize the name
     const res = await getQuote(famousList[0]);
-    console.log("res??", res);
+
     // first item is the quote, second could be the author or nothing
+    const inspireImg = await getImage(famousList[0]);
+
     setQuote({ text: res[0], author: res[1] });
+    setImageUrl(inspireImg);
   };
 
   return (
-    <>
+    <main className="main">
       <Header />
       <div className="App">
-        <button onClick={generateHandler}> Generate Quote </button>{" "}
-        {/* {quote && imageUrl && (
-          <div className="quote-container">
-            <img src={imageUrl} alt="Unsplash" />
-            <p className="quote"> {quote} </p>
-          </div>
-        )} */}
-        <p className="quote">{quote.text || "no quote"}</p>
-        <p className="author">{quote.author || "anonymous"}</p>
+        <button onClick={generateHandler}> Generate Quote </button>
+        <div className="quote-container">
+          {imageUrl && <img src={imageUrl} alt="inspiartional image" />}
+          <p className="quote">{quote.text || "no quote"}</p>
+          <p className="author">{quote.author || "anonymous"}</p>
+        </div>
       </div>
-    </>
+    </main>
   );
 }

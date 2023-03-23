@@ -1,5 +1,13 @@
 $primary-color: #4d8800;
 $secondary-color: #dc9596;
+
+// * Globals * //
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 body {
   background-color: $secondary-color;
   font-family: Arial, sans-serif;
@@ -8,6 +16,13 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+
+.main {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  max-height: 100vh;
 }
 
 .header {
@@ -67,7 +82,7 @@ button {
   position: relative;
 
   img {
-    width: 600px;
+    // width: 600px;
     height: auto;
     object-fit: cover;
   }

@@ -25,25 +25,26 @@ export async function getQuote(famousName) {
   console.log(responseStr);
   if (typeof responseStr !== "string") return "no-quote";
 
-  // separathe the author from the quote
+  // separate the author from the quote
   return responseStr.split("-");
 }
 
 export async function getImage(queryStr) {
   // Start of image fetching thingy why the slash g?
-  const prompt = "".replace(/[^a-z ]/gi, "");
+  // const prompt = "".replace(/[^a-z ]/gi, "");
   const unsplashUrl = `https://api.unsplash.com/photos/random?client_id=${
     import.meta.env.VITE_SPLASH_AKEY
-  }&query=${prompt}`;
+  }&query=${queryStr}`;
 
-  fetch(unsplashUrl)
-    .then((response) => response.json())
-    .then((data) => {
-      setImageUrl(data.urls.regular);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+  // fetch(unsplashUrl)
+  //   .then((response) => response.json())
+  //   .then((data) => {
+  //     setImageUrl(data.urls.regular);
+  //   })
+  //   .catch((error) => {
+  //     console.error(error);
+  //   });
+  const res = await axios(unsplashUrl);
 
-  setQuote(response.data.choices[0].text);
+  return res.data.urls.regular || "";
 }
