@@ -22,8 +22,7 @@ export async function getQuote(famousName) {
   });
 
   const responseStr = response.data.choices[0].text;
-  console.log(responseStr);
-  if (typeof responseStr !== "string") return "no-quote";
+  if (typeof responseStr !== "string") return "no quote";
 
   // separate the author from the quote
   return responseStr.split("-");
