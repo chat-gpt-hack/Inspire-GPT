@@ -11,13 +11,14 @@ export default function App() {
   const generateHandler = async () => {
     // * Add a new function in utils to randomize the name
     const randomIndex = Math.floor(Math.random() * famousList.length);
-    const randomFamous = famousList[randomIndex];
+    const randomFamous = famousList[randomIndex].id;
+    const randomFamousImg = famousList[randomIndex].sport;
     const res = await getQuote();
     setQuote(res[0]);
     setAthlete(randomFamous);
 
     // first item is the quote, second could be the author or nothing
-    const inspireImg = await getImage(randomFamous);
+    const inspireImg = await getImage(randomFamousImg);
     setImageUrl(inspireImg);
   };
 
