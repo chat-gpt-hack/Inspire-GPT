@@ -24,9 +24,11 @@ export default function App() {
             frequency_penalty: 0,
             presence_penalty: 0,
         });
-        // Start of image fetching thingy why the slash g?
+        // Start of image fetching thingy why the slash g? is REGEX means probalby global
         const prompt = response.data.choices[0].text.replace(/[^a-zA-Z ]/g, "");
-        const unsplashUrl = `https://api.unsplash.com/photos/random?client_id=${import.meta.env.VITE_UN_ACC}&query=${prompt}`;
+        const unsplashUrl = `https://api.unsplash.com/photos/random?client_id=${
+                                import.meta.env.VITE_UN_ACC
+                            }&query=${prompt}`;
 
         fetch(unsplashUrl)
             .then(response => response.json())
@@ -42,16 +44,12 @@ export default function App() {
 
     return ( <
         div className = "App" >
-        <
-        button onClick = { getQuote } > Generate Quote < /button> {
-            quote && imageUrl && ( <
-                div className = "quote-container" >
-                <
-                img src = { imageUrl }
-                alt = "Unsplash" / >
-                <
-                p className = "quote" > { quote } < /p> <
-                /div>
+        <button onClick = { getQuote } > Generate Quote < /button> {
+            quote && imageUrl && ( 
+                <div className = "quote-container" >
+                <img src = { imageUrl } alt = "Unsplash" / >
+                <p className = "quote" > { quote } </p> 
+                </div>
             )
         } <
         /div>
