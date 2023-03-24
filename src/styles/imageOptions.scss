@@ -1,0 +1,12 @@
+.options-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  img {
+    cursor: pointer;
+    width: 10rem;
+    height: 10rem;
+    object-fit: cover;
+  }
+}
