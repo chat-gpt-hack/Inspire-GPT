@@ -1,40 +1,51 @@
-import axios from "axios";
-import { Configuration, OpenAIApi } from "openai";
+import { useState } from "react";
+import Header from "./components/Header";
+import { getImagesArr, getQuote } from "./utils/fetchData";
+import famousList from "./utils/famousList";
+import ImageOptions from "./components/ImageOptions";
 
 export default function App() {
-  const getQuote = async () => {
-    const configuration = new Configuration({
-      apiKey: import.meta.env.VITE_CHAT_KEY,
-    });
+  const [quote, setQuote] = useState("");
+  const [athlete, setAthlete] = useState("anonymous");
+  const [imageUrlsArr, setImageUrlsArr] = useState([""]);
+  const [currImage, setCurrImage] = useState("");
 
-    const openai = new OpenAIApi(configuration);
+  const generateHandler = async () => {
+    // * Add a new function in utils to randomize the name
+    const randomIndex = Math.floor(Math.random() * famousList.length);
+    const randomFamousObj = famousList[randomIndex];
 
-    const response = await openai.createCompletion({
-      model: "text-davinci-003",
-      prompt: "Give coma separated extensive list of famous athletes",
-      temperature: 0.4,
-      max_tokens: 64,
-      top_p: 1,
-      frequency_penalty: 0,
-      presence_penalty: 0,
-    });
+    // ? Image 1st since it's faster - optimize it with Promise.All later
+    const inspireImgArr = await getImagesArr(randomFamousObj.sport);
+    console.log(inspireImgArr);
+    setImageUrlsArr(inspireImgArr);
+    setCurrImage(inspireImgArr[0]);
 
-    console.log(response.data.choices);
+    const res = await getQuote();
+    // first item is the quote, second could be the author or nothing
+    setQuote(res[0]);
+    setAthlete(randomFamousObj.name);
   };
 
-  const getImage = async (str) => {
-    const res = await axios(
-      `https://api.unsplash.com/search/photos?page=1&query=office&client_id=${
-        import.meta.env.VITE_SPLASH_AKEY
-      }`
-    );
-    console.log(res.data);
+  const updateCurrImage = (src) => {
+    setCurrImage(src);
   };
-
   return (
-    <div className="App">
-      <button onClick={getQuote}>Click me</button>
-      <button onClick={getImage}>Get image</button>
-    </div>
+    <main className="main">
+      <Header title={"Inspire Bot 3000"} />
+
+      <div className="quote-container">
+        <div className="img-bg" style={{ background: `url(${currImage})` }}>
+          <p className="quote">{quote || "no quote"}</p>
+          <p className="author">{athlete}</p>
+        </div>
+      </div>
+
+      <ImageOptions
+        imagesArr={imageUrlsArr}
+        updateCurrImage={updateCurrImage}
+      />
+      <button onClick={generateHandler}> Generate Quote </button>
+    </main>
   );
 }
