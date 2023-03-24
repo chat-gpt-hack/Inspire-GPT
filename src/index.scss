@@ -2,11 +2,11 @@ $primary-color: #4d8800;
 $secondary-color: #dc9596;
 
 // * Globals * //
-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+// img {
+//   width: 100%;
+//   height: 100%;
+//   object-fit: cover;
+// }
 
 body {
   background-color: $secondary-color;
@@ -81,7 +81,8 @@ button {
     align-items: center;
     min-height: 50vh;
     min-width: 50vw;
-    background-size: cover;
+    background-size: contain;
+    // object-fit: cover;
     background-repeat: no-repeat;
   }
 
