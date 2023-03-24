@@ -1,4 +1,4 @@
-[
+export default [
   "Michael Jordan",
   "LeBron James",
   "Lionel Messi",
@@ -16,5 +16,5 @@
   "Venus Williams",
   "Stephen Curry",
   "Katie Ledecky",
-  "Shaun White"
-]
+  "Shaun White",
+];
