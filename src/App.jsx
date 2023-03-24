@@ -11,9 +11,11 @@ export default function App() {
 
   const generateHandler = async () => {
     // * Add a new function in utils to randomize the name
-    const randomFamous = famousList[0];
+    const randomIndex = Math.floor(Math.random() * famousList.length);
+    const randomFamousObj = famousList[randomIndex];
+
     // ? Image 1st since it's faster - optimize it with Promise.All later
-    const inspireImgArr = await getImagesArr(randomFamous);
+    const inspireImgArr = await getImagesArr(randomFamousObj.name);
     console.log(inspireImgArr);
     setImageUrlsArr(inspireImgArr);
     setCurrImage(inspireImgArr[0]);

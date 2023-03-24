@@ -33,7 +33,14 @@ export async function getImagesArr(queryStr) {
   // const prompt = "".replace(/[^a-z ]/gi, "");
   const unsplashUrl = `https://api.unsplash.com/search/collections?client_id=${
     import.meta.env.VITE_SPLASH_AKEY
-  }&query=${queryStr}`;
+  }&query=${queryStr}&orientation=landscape`;
+
+  /*search method
+ 
+   const unsplashUrl =  `https://api.unsplash.com/search/photos?page=1&query=${queryStr}&client_id=${
+    import.meta.env.VITE_SPLASH_AKEY
+  }`;
+  */
 
   // fetch(unsplashUrl)
   //   .then((response) => response.json())
