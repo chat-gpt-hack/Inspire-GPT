@@ -35,6 +35,13 @@ export async function getImage(queryStr) {
     import.meta.env.VITE_SPLASH_AKEY
   }&query=${queryStr}`;
 
+  /*search method
+ 
+   const unsplashUrl =  `https://api.unsplash.com/search/photos?page=1&query=${queryStr}&client_id=${
+    import.meta.env.VITE_SPLASH_AKEY
+  }`;
+  */
+
   // fetch(unsplashUrl)
   //   .then((response) => response.json())
   //   .then((data) => {
