@@ -33,7 +33,7 @@ export async function getImage(queryStr) {
   // const prompt = "".replace(/[^a-z ]/gi, "");
   const unsplashUrl = `https://api.unsplash.com/photos/random?client_id=${
     import.meta.env.VITE_SPLASH_AKEY
-  }&query=${queryStr}`;
+  }&query=${queryStr}&orientation=landscape`;
 
   /*search method
  
