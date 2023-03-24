@@ -2,6 +2,7 @@ import { useState } from "react";
 import Header from "./components/Header";
 import { getImagesArr, getQuote } from "./utils/fetchData";
 import famousList from "./utils/famousList";
+import ImageOptions from "./components/ImageOptions";
 
 export default function App() {
   const [quote, setQuote] = useState("");
@@ -23,9 +24,12 @@ export default function App() {
     const res = await getQuote();
     // first item is the quote, second could be the author or nothing
     setQuote(res[0]);
-    setAthlete(randomFamous);
+    setAthlete(randomFamousObj.name);
   };
 
+  const updateCurrImage = (src) => {
+    setCurrImage(src);
+  };
   return (
     <main className="main">
       <Header />
@@ -35,7 +39,11 @@ export default function App() {
           <p className="author">{athlete}</p>
         </div>
       </div>
-      {/* render all images in a container where they all have an onclick handler that changes the currImage */}
+
+      <ImageOptions
+        imagesArr={imageUrlsArr}
+        updateCurrImage={updateCurrImage}
+      />
       <button onClick={generateHandler}> Generate Quote </button>
     </main>
   );
