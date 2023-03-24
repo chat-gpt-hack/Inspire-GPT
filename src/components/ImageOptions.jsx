@@ -6,7 +6,7 @@ export default function ImageOptions({ imagesArr, updateCurrImage }) {
       {imagesArr.length > 1 &&
         imagesArr.map((img, i) => (
           <div
-            key={img}
+            key={i}
             className="img-option"
             onClick={() => updateCurrImage(img)}
           >

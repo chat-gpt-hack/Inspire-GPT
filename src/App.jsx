@@ -16,7 +16,7 @@ export default function App() {
     const randomFamousObj = famousList[randomIndex];
 
     // ? Image 1st since it's faster - optimize it with Promise.All later
-    const inspireImgArr = await getImagesArr(randomFamousObj.name);
+    const inspireImgArr = await getImagesArr(randomFamousObj.sport);
     console.log(inspireImgArr);
     setImageUrlsArr(inspireImgArr);
     setCurrImage(inspireImgArr[0]);
@@ -32,7 +32,8 @@ export default function App() {
   };
   return (
     <main className="main">
-      <Header />
+      <Header title={"Inspire Bot 3000"} />
+
       <div className="quote-container">
         <div className="img-bg" style={{ background: `url(${currImage})` }}>
           <p className="quote">{quote || "no quote"}</p>
