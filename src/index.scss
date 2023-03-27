@@ -1,5 +1,5 @@
-$primary-color-op:   rgb(4, 39, 42, .4);
-$primary-color:   rgb(4, 39, 42,);
+$primary-color-op:   #04272a66;
+$primary-color:   #04272a;
 $secondary-color: #38AECC;
 $bg-color: linear-gradient(315deg, #21A0A0 0%,#00539c 50%, #00539c 70%, #074a50 100%);
 //$head-color: linear-gradient(0deg, transparent 30%, #00539c 50%, transparent 100%);
@@ -62,13 +62,13 @@ button {
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
+  height: 50px;
   cursor: pointer;
   transition: background-color 0.3s ease;
   align-self: center;
   text-align: center;
   box-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
-  position: fixed;
-  bottom: 0;
+
 
   &:hover {
     background-color: darken($primary-color, 10%);
@@ -111,3 +111,4 @@ button {
     margin: 0 auto;
   }
 }
+
