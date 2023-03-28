@@ -2,6 +2,8 @@ import { useState } from "react";
 import Header from "./components/Header";
 import { getImagesArr, getQuote } from "./utils/fetchData";
 import famousList from "./utils/famousList";
+import ImageOptions from "./components/ImageOptions";
+// import Copy from "./components/Copy";
 
 export default function App() {
   const [quote, setQuote] = useState("");
@@ -15,7 +17,7 @@ export default function App() {
     const randomFamousObj = famousList[randomIndex];
 
     // ? Image 1st since it's faster - optimize it with Promise.All later
-    const inspireImgArr = await getImagesArr(randomFamousObj.name);
+    const inspireImgArr = await getImagesArr(randomFamousObj.sport);
     console.log(inspireImgArr);
     setImageUrlsArr(inspireImgArr);
     setCurrImage(inspireImgArr[0]);
@@ -23,20 +25,29 @@ export default function App() {
     const res = await getQuote();
     // first item is the quote, second could be the author or nothing
     setQuote(res[0]);
-    setAthlete(randomFamous);
+    setAthlete(randomFamousObj.name);
   };
 
+  const updateCurrImage = (src) => {
+    setCurrImage(src);
+  };
   return (
     <main className="main">
-      <Header />
+      <Header title={"Inspire Bot 3000"} />
+
       <div className="quote-container">
         <div className="img-bg" style={{ background: `url(${currImage})` }}>
           <p className="quote">{quote || "no quote"}</p>
           <p className="author">{athlete}</p>
         </div>
       </div>
-      {/* render all images in a container where they all have an onclick handler that changes the currImage */}
       <button onClick={generateHandler}> Generate Quote </button>
+
+      <ImageOptions className="imgArr"
+        imagesArr={imageUrlsArr}
+        updateCurrImage={updateCurrImage}
+      />
+
     </main>
   );
 }
