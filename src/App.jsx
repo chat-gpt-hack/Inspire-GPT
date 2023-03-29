@@ -3,7 +3,7 @@ import Header from "./components/Header";
 import { getImagesArr, getQuote } from "./utils/fetchData";
 import famousList from "./utils/famousList";
 import ImageOptions from "./components/ImageOptions";
-// import Copy from "./components/Copy";
+import ImgCanvas from "./components/ImgCanvas";
 
 export default function App() {
     const [quote, setQuote] = useState("");
@@ -37,7 +37,11 @@ export default function App() {
           <p className="author">{athlete}</p>
         </div>
       </div>
-      {/* render all images in a container where they all have an onclick handler that changes the currImage */}
+
+      <ImageOptions
+        imagesArr={imageUrlsArr}
+        updateCurrImage={updateCurrImage}
+      />
       <button onClick={generateHandler}> Generate Quote </button>
     </main>
   );
