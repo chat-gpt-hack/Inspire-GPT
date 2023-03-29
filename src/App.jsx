@@ -18,14 +18,19 @@ export default function App() {
 
     // ? Image 1st since it's faster - optimize it with Promise.All later
     const inspireImgArr = await getImagesArr(randomFamousObj.name);
-    console.log(inspireImgArr);
+    //console.log(inspireImgArr);
     setImageUrlsArr(inspireImgArr);
     setCurrImage(inspireImgArr[0]);
 
     const res = await getQuote();
     // first item is the quote, second could be the author or nothing
     setQuote(res[0]);
-    setAthlete(randomFamous);
+    setAthlete(randomFamousObj.name); // Fixed this line to use the randomFamousObj's name property
+  };
+
+    // Define the updateCurrImage function it works...
+  const updateCurrImage = (newImage) => {
+    setCurrImage(newImage);
   };
 
   return (
