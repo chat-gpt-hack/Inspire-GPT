@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import { getImagesArr, getQuote } from "./utils/fetchData";
 import famousList from "./utils/famousList";
 import ImageOptions from "./components/ImageOptions";
+import ImgCanvas from "./components/ImgCanvas";
 
 export default function App() {
   const [quote, setQuote] = useState("");
@@ -45,6 +46,8 @@ export default function App() {
         imagesArr={imageUrlsArr}
         updateCurrImage={updateCurrImage}
       />
+
+      <ImgCanvas imageSrc={currImage} text={quote} />
       <button onClick={generateHandler}> Generate Quote </button>
     </main>
   );
