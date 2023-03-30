@@ -47,7 +47,7 @@ export default function App() {
         updateCurrImage={updateCurrImage}
       />
 
-      <ImgCanvas imageSrc={currImage} text={quote} />
+      {/* <ImgCanvas imageSrc={currImage} text={quote} /> */}
       <button onClick={generateHandler}> Generate Quote </button>
     </main>
   );
