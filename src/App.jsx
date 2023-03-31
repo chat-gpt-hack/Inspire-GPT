@@ -28,17 +28,15 @@ export default function App() {
     setAthlete(randomFamousObj.name);
   };
 
-  const updateCurrImage = (src) => {
-    setCurrImage(src);
-  };
   return (
     <main className="main">
       <Header title={"Inspire Bot 3000"} />
 
       <div className="quote-container">
-        <div className="img-bg" style={{ background: `url(${currImage})` }}>
+        <img src={currImage} alt="missing main image" />
+        <div className="quote-text">
           <p className="quote">{quote || "no quote"}</p>
-          <p className="author">{athlete}</p>
+          <p className="author">{athlete || "no athlete"}</p>
         </div>
       </div>
       <button onClick={generateHandler}> Generate Quote </button>
@@ -46,7 +44,7 @@ export default function App() {
       <ImageOptions
         className="imgArr"
         imagesArr={imageUrlsArr}
-        updateCurrImage={updateCurrImage}
+        updateCurrImage={(src) => setCurrImage(src)}
       />
 
       {/* <ImgCanvas imageSrc={currImage} text={quote} /> */}
