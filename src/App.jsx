@@ -41,8 +41,10 @@ export default function App() {
           <p className="author">{athlete}</p>
         </div>
       </div>
+      <button onClick={generateHandler}> Generate Quote </button>
 
       <ImageOptions
+        className="imgArr"
         imagesArr={imageUrlsArr}
         updateCurrImage={updateCurrImage}
       />
