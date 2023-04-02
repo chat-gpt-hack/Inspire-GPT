@@ -1,7 +1,13 @@
-$primary-color-op:   #04272a66;
-$primary-color:   #04272a;
-$secondary-color: #38AECC;
-$bg-color: linear-gradient(315deg, #21A0A0 0%,#00539c 50%, #00539c 70%, #074a50 100%);
+$primary-color-op: #04272a66;
+$primary-color: #04272a;
+$secondary-color: #38aecc;
+$bg-color: linear-gradient(
+  315deg,
+  #21a0a0 0%,
+  #00539c 50%,
+  #00539c 70%,
+  #074a50 100%
+);
 //$head-color: linear-gradient(0deg, transparent 30%, #00539c 50%, transparent 100%);
 
 // * Globals * //
@@ -32,7 +38,7 @@ body {
 .header {
   width: 100%;
   background-color: $primary-color-op;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   text-align: center;
   margin: auto;
   text-transform: uppercase;
@@ -44,15 +50,6 @@ body {
   text-transform: capitalize;
 }
 
-.quote-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  width: 60vw;
-  margin-top: 20vw;
-  margin: 0 auto;
-}
 
 button {
   display: block;
@@ -63,12 +60,12 @@ button {
   padding: 10px 20px;
   border-radius: 5px;
   height: 50px;
+  width:auto;
   cursor: pointer;
   transition: background-color 0.3s ease;
   align-self: center;
   text-align: center;
   box-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
-
 
   &:hover {
     background-color: darken($primary-color, 10%);
@@ -77,6 +74,19 @@ button {
 
 .quote-container {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 60vw;
+  max-width: 530px;
+  margin-top: 20vw;
+  margin: 0 auto;
+
+  img {
+    width: 100%;
+    border-radius: 1rem;
+  }
 
   .img-bg {
     display: flex;
@@ -84,31 +94,35 @@ button {
     justify-content: space-evenly;
     align-items: center;
     min-height: 50vh;
-    min-width: 50vw;
-   background-size: contain;
-   // object-fit:contain;
-    background-repeat: no-repeat;
+    min-width: 300px;
+    object-fit: cover;
+    width: 50vw;
   }
 
-  .quote,
-  .author {
-    line-height: 1.5;
-    text-align: center;
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    color: #222;
-    max-width: 90%;
-  }
+  .quote-text {
+    position: absolute;
 
-  .quote {
-    font-size: 1.5rem;
-  }
 
-  .author {
-    width: fit-content;
-    margin: 0 auto;
+    .quote,
+    .author {
+      margin: 10% auto;
+      line-height: 1.5;
+      text-align: center;
+      padding: 10px;
+      background-color: rgba(255, 255, 255, 0.5);
+      border-radius: 5px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      color: #222;
+      max-width: 90%;
+    }
+
+    .quote {
+      font-size: 1.5rem;
+    }
+
+    .author {
+      width: fit-content;
+      margin: 0 auto;
+    }
   }
 }
-

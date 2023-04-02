@@ -1,0 +1,21 @@
+
+.nav {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    background: #ffffff;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+.navItem {
+    width: 40px;
+    margin: 5px;
+  }
+
+h2 {
+    font-size: 2vw;
+}
