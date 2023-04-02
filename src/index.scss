@@ -50,6 +50,7 @@ body {
   text-transform: capitalize;
 }
 
+
 button {
   display: block;
   margin: 0 auto 10px auto;
@@ -59,6 +60,7 @@ button {
   padding: 10px 20px;
   border-radius: 5px;
   height: 50px;
+  width:auto;
   cursor: pointer;
   transition: background-color 0.3s ease;
   align-self: center;
@@ -77,6 +79,7 @@ button {
   align-items: center;
   text-align: center;
   width: 60vw;
+  max-width: 530px;
   margin-top: 20vw;
   margin: 0 auto;
 
@@ -98,6 +101,7 @@ button {
 
   .quote-text {
     position: absolute;
+
 
     .quote,
     .author {

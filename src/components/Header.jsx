@@ -1,10 +1,17 @@
 // import PropTypes from "prop-types"
+import "../styles/header.scss";
+
 
 const Header = ({ title }) => {
   return (
     <header className="header">
+      <ul className="nav">
+        <li className="navItem"><img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg"></img></li>
+        <li className="navItem"><img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg"></img></li>
+        <li className="navItem"><img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg"></img></li>
+      </ul>
       <h1 className="title">{title}</h1>
-      <h2>Get inspired</h2>
+      <h2>Get inspired with Inspirebot 3000: your personal motivational coach. With our AI-generated quotes and stunning photos, you'll have the inspiration you need to tackle any challenge.</h2>
     </header>
   );
 };

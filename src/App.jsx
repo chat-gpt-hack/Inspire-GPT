@@ -5,6 +5,7 @@ import famousList from "./utils/famousList";
 import ImageOptions from "./components/ImageOptions";
 import ImgCanvas from "./components/ImgCanvas";
 
+
 export default function App() {
   const [quote, setQuote] = useState("");
   const [athlete, setAthlete] = useState("anonymous");
