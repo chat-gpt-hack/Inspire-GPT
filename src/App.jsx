@@ -31,7 +31,7 @@ export default function App() {
 
   return (
     <main className="main">
-      <Header title={"Inspire Bot 3000"} />
+      <Header />
 
       <div className="quote-container">
         <img src={currImage} alt="missing main image" />
