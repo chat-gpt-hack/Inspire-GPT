@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import { getImagesArr, getQuote } from "./utils/fetchData";
 import famousList from "./utils/famousList";
 import ImageOptions from "./components/ImageOptions";
@@ -31,7 +32,7 @@ export default function App() {
 
   return (
     <main className="main">
-      <Header title={"Inspire Bot 3000"} />
+      <Header />
 
       <div className="quote-container">
         <img src={currImage} alt="missing main image" />
@@ -50,6 +51,7 @@ export default function App() {
 
       {/* <ImgCanvas imageSrc={currImage} text={quote} /> */}
       <button onClick={generateHandler}> Generate Quote </button>
+      <Footer />
     </main>
   );
 }

@@ -1,0 +1,38 @@
+.footer {
+    top: calc(100vh - 100px);
+    background: #7184ab;
+    width: 100%;
+
+}
+
+.footerList {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    height: 150px;
+    margin: 0;
+    padding: 0;
+    justify-content: space-around;
+    gap: 10px;
+    align-items: center;
+}
+
+.author {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+}
+
+.authName {
+    
+}
+
+.footItem {
+    font-size: 20px;
+}
+
+.brandIcon {
+//    color: linear-gradient(to right, #f1cc11 0%, #a810c6 60%, #3c16ba 100%);
+    color: whitesmoke;
+}
+
