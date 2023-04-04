@@ -1,13 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { getImagesArr, getQuote } from "./utils/fetchData";
+import { getApiOrHardcodedQuote, getImagesArr } from "./utils/fetchData";
 import famousList from "./utils/famousList";
 import ImageOptions from "./components/ImageOptions";
 import ImgCanvas from "./components/ImgCanvas";
-
-// little flag to emulate using the api in case we run out of credits
-const DEV_MODE = true;
 
 export default function App() {
   const [quote, setQuote] = useState("");
@@ -26,9 +23,9 @@ export default function App() {
     setImageUrlsArr(inspireImgArr);
     setCurrImage(inspireImgArr[0]);
 
-    const res = await getQuote();
+    const res = await getApiOrHardcodedQuote(randomFamousObj.name);
     // first item is the quote, second could be the author or nothing
-    setQuote(res[0]);
+    setQuote(res);
     setAthlete(randomFamousObj.name);
   };
 
