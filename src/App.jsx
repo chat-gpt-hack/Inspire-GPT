@@ -5,6 +5,7 @@ import { getImagesArr, getQuote } from "./utils/fetchData";
 import famousList from "./utils/famousList";
 import ImageOptions from "./components/ImageOptions";
 import ImgCanvas from "./components/ImgCanvas";
+import Slider from "./components/Slider";
 
 
 export default function App() {
@@ -36,6 +37,7 @@ export default function App() {
 
       <div className="quote-container">
         <img src={currImage} alt="missing main image" />
+
         <div className="quote-text">
           <p className="quote">{quote || "no quote"}</p>
           <p className="author">{athlete || "no athlete"}</p>
