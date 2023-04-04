@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { getImagesArr, getQuote } from "./utils/fetchData";
@@ -6,6 +6,8 @@ import famousList from "./utils/famousList";
 import ImageOptions from "./components/ImageOptions";
 import ImgCanvas from "./components/ImgCanvas";
 
+// little flag to emulate using the api in case we run out of credits
+const DEV_MODE = true;
 
 export default function App() {
   const [quote, setQuote] = useState("");
@@ -20,7 +22,7 @@ export default function App() {
 
     // ? Image 1st since it's faster - optimize it with Promise.All later
     const inspireImgArr = await getImagesArr(randomFamousObj.sport);
-    console.log(inspireImgArr);
+    // console.log(inspireImgArr);
     setImageUrlsArr(inspireImgArr);
     setCurrImage(inspireImgArr[0]);
 
@@ -29,6 +31,16 @@ export default function App() {
     setQuote(res[0]);
     setAthlete(randomFamousObj.name);
   };
+
+  const didMount = useRef(false);
+  useEffect(() => {
+    // extra stuff to avoid weird things on react18 (double rendering)
+    if (!didMount.current) {
+      // executes the function as soon as the page loads
+      // generateHandler();
+      didMount.current = true;
+    }
+  }, []);
 
   return (
     <main className="main">
