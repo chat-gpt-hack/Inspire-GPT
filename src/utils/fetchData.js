@@ -36,8 +36,8 @@ export async function getImagesArr(queryStr) {
   }&query=${queryStr}&orientation=landscape`;
 
   /*search method
- 
-   const unsplashUrl =  `https://api.unsplash.com/search/photos?page=1&query=${queryStr}&client_id=${
+
+  const unsplashUrl =  `https://api.unsplash.com/search/photos?page=1&query=${queryStr}&client_id=${
     import.meta.env.VITE_SPLASH_AKEY
   }`;
   */
