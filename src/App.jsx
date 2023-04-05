@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import { getImagesArr, getQuote } from "./utils/fetchData";
 import famousList from "./utils/famousList";
 import ImageOptions from "./components/ImageOptions";
 import ImgCanvas from "./components/ImgCanvas";
+>>>>>>>>> Temporary merge branch 2
 
 export default function App() {
     const [quote, setQuote] = useState("");
@@ -17,8 +19,8 @@ export default function App() {
         const randomFamousObj = famousList[randomIndex];
 
     // ? Image 1st since it's faster - optimize it with Promise.All later
-    const inspireImgArr = await getImagesArr(randomFamousObj.name);
-    //console.log(inspireImgArr);
+    const inspireImgArr = await getImagesArr(randomFamousObj.sport);
+    console.log(inspireImgArr);
     setImageUrlsArr(inspireImgArr);
     setCurrImage(inspireImgArr[0]);
 
@@ -28,26 +30,31 @@ export default function App() {
     setAthlete(randomFamousObj.name); // Fixed this line to use the randomFamousObj's name property
   };
 
-    // Define the updateCurrImage function it works...
-  const updateCurrImage = (newImage) => {
-    setCurrImage(newImage);
+  const updateCurrImage = (src) => {
+    setCurrImage(src);
   };
-
   return (
     <main className="main">
-      <Header />
+      <Header title={"Inspire Bot 3000"} />
+
       <div className="quote-container">
-        <div className="img-bg" style={{ background: `url(${currImage})` }}>
+        <img src={currImage} alt="missing main image" />
+        <div className="quote-text">
           <p className="quote">{quote || "no quote"}</p>
-          <p className="author">{athlete}</p>
+          <p className="author">{athlete || "no athlete"}</p>
         </div>
       </div>
 
-      <ImageOptions
+      <ImageOptions className="imgArr"
         imagesArr={imageUrlsArr}
-        updateCurrImage={updateCurrImage}
+        updateCurrImage={(src) => setCurrImage(src)}
       />
+
+<<<<<<<<< Temporary merge branch 1
+=========
+      <ImgCanvas imageSrc={currImage} text={quote} />
       <button onClick={generateHandler}> Generate Quote </button>
+>>>>>>>>> Temporary merge branch 2
     </main>
   );
 }
