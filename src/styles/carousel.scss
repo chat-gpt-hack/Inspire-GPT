@@ -7,10 +7,14 @@
   }
   
   .slides {
-    position: relative;
-    height: 150px;
-    width: 150px;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    min-height: 50vh;
+    min-width: 300px;
+    object-fit: cover;
+    width: 50vw;
   }
   
   .slide {
@@ -32,12 +36,33 @@
     justify-content: space-between;
     width: 150px;
     margin-top: 1rem;
+    position: absolute;
+    bottom: 1rem;
   }
   
   button {
-    background: none;
-    border: 1px solid black;
-    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #04272a;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    height: 50px;
+    width: 50px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
   }
+  
+  .prev-btn {
+    left: 1rem;
+  }
+  
+  .next-btn {
+    right: 1rem;
+  }
+  
   

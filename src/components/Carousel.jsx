@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { getImagesArr } from "../utils/fetchData.js";
 import "../styles/carousel.scss"; // import your carousel CSS file
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 function ImageCarousel({ athlete }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -41,8 +42,8 @@ function ImageCarousel({ athlete }) {
         )}
       </div>
       <div className="buttons">
-        <button onClick={previousSlide}>Previous</button>
-        <button onClick={nextSlide}>Next</button>
+        <button onClick={previousSlide} className="prev"><FaChevronLeft /></button>
+        <button onClick={nextSlide} className="next"><FaChevronRight /></button>
       </div>
     </div>
   );
