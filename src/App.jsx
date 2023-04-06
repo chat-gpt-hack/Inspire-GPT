@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { getImagesArr, getQuote } from "./utils/fetchData";
+import { getApiOrHardcodedQuote, getImagesArr } from "./utils/fetchData";
 import famousList from "./utils/famousList";
 import ImageOptions from "./components/ImageOptions";
 import ImgCanvas from "./components/ImgCanvas";
@@ -21,13 +21,13 @@ export default function App() {
 
     // ? Image 1st since it's faster - optimize it with Promise.All later
     const inspireImgArr = await getImagesArr(randomFamousObj.sport);
-    console.log(inspireImgArr);
+    // console.log(inspireImgArr);
     setImageUrlsArr(inspireImgArr);
     setCurrImage(inspireImgArr[0]);
 
-    const res = await getQuote();
+    const res = await getApiOrHardcodedQuote(randomFamousObj.name);
     // first item is the quote, second could be the author or nothing
-    setQuote(res[0]);
+    setQuote(res);
     setAthlete(randomFamousObj.name);
   };
 
@@ -45,6 +45,17 @@ export default function App() {
     const index = shouldResetIndex ? 0 : carrouselIndex + 1;
     setCarrouselIndex(index);
   };
+
+  // fetch quote & images as soon as loads
+  const didMount = useRef(false);
+  useEffect(() => {
+    // extra stuff to avoid weird things on react18 (double rendering)
+    if (!didMount.current) {
+      // executes the function as soon as the page loads
+      generateHandler();
+      didMount.current = true;
+    }
+  }, []);
 
   return (
     <main className="main">
