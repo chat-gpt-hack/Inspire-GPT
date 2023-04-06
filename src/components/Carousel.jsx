@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getImagesArr } from "./fetchData.js";
+import { getImagesArr } from "../utils/fetchData.js";
 import "../styles/carousel.scss"; // import your carousel CSS file
 
 function ImageCarousel({ athlete }) {

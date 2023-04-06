@@ -5,7 +5,7 @@ import { getImagesArr, getQuote } from "./utils/fetchData";
 import famousList from "./utils/famousList";
 import ImageOptions from "./components/ImageOptions";
 import ImgCanvas from "./components/ImgCanvas";
-import Carousel from "./utils/Carousel";
+import Carousel from "./components/Carousel";
 
 
 
