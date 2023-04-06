@@ -42,8 +42,8 @@ function ImageCarousel({ athlete }) {
         )}
       </div>
       <div className="buttons">
-        <button onClick={previousSlide} className="prev"><FaChevronLeft /></button>
-        <button onClick={nextSlide} className="next"><FaChevronRight /></button>
+        <button onClick={previousSlide} className="prev-btn"><FaChevronLeft /></button>
+        <button onClick={nextSlide} className="next-btn"><FaChevronRight /></button>
       </div>
     </div>
   );

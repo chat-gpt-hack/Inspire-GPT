@@ -58,11 +58,13 @@
   }
   
   .prev-btn {
-    left: 1rem;
+    position: relative;
+    left: -70px;
   }
   
   .next-btn {
-    right: 1rem;
+    position: relative;
+    right: -70px;
   }
   
   
