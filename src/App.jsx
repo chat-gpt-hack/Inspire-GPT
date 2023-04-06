@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { getApiOrHardcodedQuote, getImagesArr } from "./utils/fetchData";
 import famousList from "./utils/famousList";
-import PureCarousel from "./components/PureCarousel";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ImageOptions from "./components/ImageOptions";
 import ImgCanvas from "./components/ImgCanvas";
+import Carousel from "./components/Carousel";
 
 export default function App() {
   const [quote, setQuote] = useState("");
@@ -20,8 +20,10 @@ export default function App() {
 
     // ? Image 1st since it's faster - optimize it with Promise.All later
     const inspireImgArr = await getImagesArr(randomFamousObj.sport);
-    // console.log(inspireImgArr);
-    setImageUrlsArr(inspireImgArr);
+
+    // transform to set  & then go back to arr
+    const uniqueImgs = [...new Set(inspireImgArr)];
+    setImageUrlsArr(uniqueImgs);
     setCurrImage(inspireImgArr[0]);
 
     const res = await getApiOrHardcodedQuote(randomFamousObj.name);
@@ -42,7 +44,7 @@ export default function App() {
 
   return (
     <main className="main">
-      <Header />
+      {/* <Header />
 
       <div className="quote-container">
         <img src={currImage} alt="missing main image" />
@@ -54,22 +56,13 @@ export default function App() {
 
       <button className="main-btn" onClick={generateHandler}>
         Generate Quote
-      </button>
+      </button> */}
 
-      <PureCarousel
-        slides={imageUrlsArr}
-        updateCurrImage={(src) => setCurrImage(src)}
-      />
-
-      {/* <ImageOptions
-        className="imgArr"
-        imagesArr={imageUrlsArr}
-        updateCurrImage={(src) => setCurrImage(src)}
-      /> */}
+      <Carousel slidesArr={imageUrlsArr} />
 
       <button onClick={generateHandler}> Generate Quote </button>
 
-      <Footer />
+      {/* <Footer /> */}
       {/* <ImgCanvas imageSrc={currImage} text={quote} /> */}
     </main>
   );
