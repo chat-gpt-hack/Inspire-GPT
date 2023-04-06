@@ -1,3 +1,5 @@
+@import "react-alice-carousel/lib/scss/alice-carousel.scss";
+
 $primary-color-op: #04272a66;
 $primary-color: #04272a;
 $secondary-color: #38aecc;
@@ -30,8 +32,8 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 5px;
-//  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-//  width: 60vw;
+  //  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  //  width: 60vw;
   margin: 0 auto;
 }
 
@@ -44,7 +46,7 @@ button {
   padding: 10px 20px;
   border-radius: 5px;
   height: 50px;
-  width:auto;
+  width: auto;
   cursor: pointer;
   transition: background-color 0.3s ease;
   align-self: center;
@@ -85,7 +87,6 @@ button {
 
   .quote-text {
     position: absolute;
-
 
     .quote,
     .author {

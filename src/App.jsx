@@ -5,11 +5,12 @@ import { getApiOrHardcodedQuote, getImagesArr } from "./utils/fetchData";
 import famousList from "./utils/famousList";
 import ImageOptions from "./components/ImageOptions";
 import ImgCanvas from "./components/ImgCanvas";
+import AliceCarousel from "./components/AliceCarousel";
 
 export default function App() {
   const [quote, setQuote] = useState("");
   const [athlete, setAthlete] = useState("anonymous");
-  const [imageUrlsArr, setImageUrlsArr] = useState([""]);
+  const [imageUrlsArr, setImageUrlsArr] = useState([]);
   const [currImage, setCurrImage] = useState("");
 
   const generateHandler = async () => {
@@ -41,8 +42,9 @@ export default function App() {
 
   return (
     <main className="main">
-      <Header />
-
+      <AliceCarousel slides={imageUrlsArr} />
+      <button onClick={generateHandler}> Generate Quote </button>
+      {/* <Header />
       <div className="quote-container">
         <img src={currImage} alt="missing main image" />
         <div className="quote-text">
@@ -50,7 +52,7 @@ export default function App() {
           <p className="author">{athlete || "no athlete"}</p>
         </div>
       </div>
-      <button onClick={generateHandler}> Generate Quote </button>
+      
 
       <ImageOptions
         className="imgArr"
@@ -58,9 +60,9 @@ export default function App() {
         updateCurrImage={(src) => setCurrImage(src)}
       />
 
-      {/* <ImgCanvas imageSrc={currImage} text={quote} /> */}
       <button onClick={generateHandler}> Generate Quote </button>
-      <Footer />
+      <Footer /> */}
+      {/* <ImgCanvas imageSrc={currImage} text={quote} /> */}
     </main>
   );
 }
