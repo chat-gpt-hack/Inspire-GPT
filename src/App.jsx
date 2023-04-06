@@ -5,7 +5,8 @@ import { getImagesArr, getQuote } from "./utils/fetchData";
 import famousList from "./utils/famousList";
 import ImageOptions from "./components/ImageOptions";
 import ImgCanvas from "./components/ImgCanvas";
-import Slider from "./components/Slider";
+import Carousel from "./utils/Carousel";
+
 
 
 export default function App() {
@@ -36,7 +37,7 @@ export default function App() {
       <Header />
 
       <div className="quote-container">
-        <img src={currImage} alt="missing main image" />
+      <Carousel imageUrlsArr={imageUrlsArr} currImage={currImage} />
 
         <div className="quote-text">
           <p className="quote">{quote || "no quote"}</p>
@@ -53,6 +54,7 @@ export default function App() {
 
       {/* <ImgCanvas imageSrc={currImage} text={quote} /> */}
       <button onClick={generateHandler}> Generate Quote </button>
+
       <Footer />
     </main>
   );
