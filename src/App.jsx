@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
 import { getApiOrHardcodedQuote, getImagesArr } from "./utils/fetchData";
 import famousList from "./utils/famousList";
+import PureCarousel from "./components/PureCarousel";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import ImageOptions from "./components/ImageOptions";
 import ImgCanvas from "./components/ImgCanvas";
-import AliceCarousel from "./components/AliceCarousel";
 
 export default function App() {
   const [quote, setQuote] = useState("");
@@ -42,9 +42,8 @@ export default function App() {
 
   return (
     <main className="main">
-      <AliceCarousel slides={imageUrlsArr} />
-      <button onClick={generateHandler}> Generate Quote </button>
-      {/* <Header />
+      <Header />
+
       <div className="quote-container">
         <img src={currImage} alt="missing main image" />
         <div className="quote-text">
@@ -52,16 +51,25 @@ export default function App() {
           <p className="author">{athlete || "no athlete"}</p>
         </div>
       </div>
-      
 
-      <ImageOptions
-        className="imgArr"
-        imagesArr={imageUrlsArr}
+      <button className="main-btn" onClick={generateHandler}>
+        Generate Quote
+      </button>
+
+      <PureCarousel
+        slides={imageUrlsArr}
         updateCurrImage={(src) => setCurrImage(src)}
       />
 
+      {/* <ImageOptions
+        className="imgArr"
+        imagesArr={imageUrlsArr}
+        updateCurrImage={(src) => setCurrImage(src)}
+      /> */}
+
       <button onClick={generateHandler}> Generate Quote </button>
-      <Footer /> */}
+
+      <Footer />
       {/* <ImgCanvas imageSrc={currImage} text={quote} /> */}
     </main>
   );

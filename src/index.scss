@@ -1,5 +1,3 @@
-@import "react-alice-carousel/lib/scss/alice-carousel.scss";
-
 $primary-color-op: #04272a66;
 $primary-color: #04272a;
 $secondary-color: #38aecc;
@@ -37,7 +35,7 @@ body {
   margin: 0 auto;
 }
 
-button {
+.main-btn {
   display: block;
   margin: 0 auto 10px auto;
   background-color: $primary-color;
@@ -59,6 +57,7 @@ button {
 }
 
 .quote-container {
+  min-height: 10rem;
   position: relative;
   display: flex;
   flex-direction: column;
