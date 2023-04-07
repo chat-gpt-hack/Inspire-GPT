@@ -35,9 +35,9 @@ body {
   margin: 0 auto;
 }
 
-button {
+.generateButton {
   display: block;
-  margin: 0 auto 10px auto;
+  margin: 10px auto 10px auto;
   background-color: $primary-color;
   color: white;
   border: none;

@@ -60,7 +60,7 @@ export default function App() {
   return (
     <main className="main">
       <Header />
-
+     
       <div className="quote-container">
         <img src={currImage} alt="missing main" />
         <div className="quote-text">
@@ -68,8 +68,10 @@ export default function App() {
           <p className="author">{athlete || "no athlete"}</p>
         </div>
       </div>
-      <button onClick={generateHandler}> Generate Quote </button>
 
+      <button className='generateButton' onClick={generateHandler}> Generate New Quote </button>
+
+      
       <Carousel
         currImage={imageUrlsArr[carrouselIndex]}
         prevImage={previousSlide}
@@ -78,9 +80,7 @@ export default function App() {
       />
 
       {/* <ImgCanvas imageSrc={currImage} text={quote} /> */}
-      <button onClick={generateHandler}> Generate Quote </button>
-
-      <Footer />
+       <Footer />
     </main>
   );
 }
