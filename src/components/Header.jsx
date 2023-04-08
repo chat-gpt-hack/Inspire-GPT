@@ -1,24 +1,11 @@
-import "../styles/header.scss";
+import React from 'react';
+import '../styles/header.scss';
+import NavBar from './NavBar';
 
 const Header = ({ title }) => {
   return (
     <header className="header">
-      <nav className="navBar">
-        <ul className="navList">
-          <li className="logo">
-            InspireBOT<a className="accent">3000</a>
-          </li>
-          <li className="navItem">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg"></img>
-          </li>
-          <li className="navItem">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg"></img>
-          </li>
-          <li className="navItem">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg"></img>
-          </li>
-        </ul>
-      </nav>
+      <NavBar />
       <h1 className="title">{title}</h1>
       <h2>
         Get inspired with Inspirebot 3000: your personal motivational coach.

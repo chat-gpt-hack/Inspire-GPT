@@ -76,8 +76,6 @@ export default function App() {
         selectHandler={(imgSrc) => setCurrImage(imgSrc)}
       />
 
-<<<<<<<<< Temporary merge branch 1
-=========
       <ImgCanvas imageSrc={currImage} text={quote} />
       <button onClick={generateHandler}> Generate Quote </button>
 
