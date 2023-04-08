@@ -53,17 +53,23 @@ button:hover {
 .prev-btn,
 .next-btn {
     position: absolute;
-    background-color: transparent;
+    background-color: transparent; // Makes the button background transparent
     color: white;
+    height: 100%; // Makes the buttons height relative to the currImage
+    width: 20%; // Sets a fixed width for the buttons
+    z-index: 2;
+    background-color: RED; //DEBUG
 }
 
 .prev-btn {
-    left: 0;
+    left: -50px; // Position the button on the left edge of the currImage
+    top: 50%;
     transform: translateY(-50%);
 }
 
 .next-btn {
-    right: 0;
+    right: -50px; // Position the button on the right edge of the currImage
+    top: 50%;
     transform: translateY(-50%);
 }
 
