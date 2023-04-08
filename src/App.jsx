@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Header from "./components/Header";
+import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import { getApiOrHardcodedQuote, getImagesArr } from "./utils/fetchData";
 import famousList from "./utils/famousList";
@@ -59,6 +60,7 @@ export default function App() {
 
   return (
     <main className="main">
+      <NavBar />
       <Header title={"Inspire Bot 3000"} />
 
       <div className="quote-container">
