@@ -71,6 +71,11 @@ button:hover {
     position: relative;
     display: flex;
     align-items: center;
+    justify-content: center;
+}
+
+.currImage-container {
+    position: relative;
 }
 
 .preview {
@@ -80,19 +85,21 @@ button:hover {
 
 .quote-container {
     position: absolute;
-    top: 0;
-    left: 0;
+    border-radius: 25px;
     width: 80%;
-    height: 80%;
+    height: 100%;
+    transform: translate(0%, -450%);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: white;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 25px;
 }
 
 .quote,
 .author {
-    margin: 0;
+    margin: 15px;
 }
