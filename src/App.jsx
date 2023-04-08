@@ -63,22 +63,17 @@ export default function App() {
       <NavBar />
       <Header title={"Inspire Bot 3000"} />
 
-      {/*<div className="quote-container">  // These changes are made while i test the carousel, i want the quote generated to be in the carousel, so i will remove this div and the ImgCanvas component and replace it with the carousel component
-        <img src={currImage} alt="missing main" />
-        <div className="quote-text">
-          <p className="quote">{quote || "no quote"}</p>
-          <p className="author">{athlete || "no athlete"}</p>
-        </div>
-      </div>*/}
+       <Carousel
+      currImage={imageUrlsArr[carrouselIndex]}
+      prevImage={imageUrlsArr[carrouselIndex === 0 ? imageUrlsArr.length - 1 : carrouselIndex - 1]}
+      nextImage={imageUrlsArr[carrouselIndex === imageUrlsArr.length - 1 ? 0 : carrouselIndex + 1]}
+      prevHandler={previousSlide}
+      nextHandler={nextSlide}
+      selectHandler={(imgSrc) => setCurrImage(imgSrc)}
+      quote={quote}
+      athlete={athlete}
+    />
 
-      <Carousel
-        currImage={imageUrlsArr[carrouselIndex]}
-        prevImage={previousSlide}
-        nextImage={nextSlide}
-        selectHandler={(imgSrc) => setCurrImage(imgSrc)}
-        quote={quote}
-        athlete={athlete}
-      />
 
       {/*<ImgCanvas imageSrc={currImage} text={quote} /> Remove this as i do not see the point, will keep this here until i have gotten the ok to totally remove it*/}
       <button className="generateButton " onClick={generateHandler}> Generate Quote </button>

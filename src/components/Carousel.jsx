@@ -1,7 +1,7 @@
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import "../styles/carousel.scss";
 export default function Carousel(props) {
-  const { currImage, nextImage, prevImage, selectHandler, quote, athlete } = props;
+  const { currImage, nextImage, prevImage, selectHandler, quote, athlete, nextHandler, prevHandler } = props;
 
 return (
   <section className="carousel">
@@ -31,10 +31,10 @@ return (
         />
       </div>
       <article>
-        <button onClick={prevImage} className="prev-btn">
+        <button onClick={prevHandler} className="prev-btn">
           <FaChevronLeft style={{ fontSize: "500%" }} />
         </button>
-        <button onClick={nextImage} className="next-btn">
+        <button onClick={nextHandler} className="next-btn">
           <FaChevronRight style={{ fontSize: "500%" }} />
         </button>
       </article>
