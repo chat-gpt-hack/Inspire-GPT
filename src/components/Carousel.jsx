@@ -5,7 +5,25 @@ export default function Carousel(props) {
 
 return (
     <section className="carousel">
-      <article className="buttons">
+
+      <div className='rowImg'>
+        <img
+            src={prevImage}
+            alt="missing img"
+            onClick={() => selectHandler(prevImage)}
+        />
+        <img
+            src={currImage}
+            alt="missing img"
+            onClick={() => selectHandler(currImage)}
+        />
+        <img
+            src={nextImage}
+            alt="missing img"
+            onClick={() => selectHandler(nextImage)}
+        />
+      
+      <article>
         <button onClick={prevImage} className="prev-btn">
           <FaChevronLeft style={{ fontSize: "500%" }} />
         </button>
@@ -13,12 +31,7 @@ return (
           <FaChevronRight style={{ fontSize: "500%" }} />
         </button>
       </article>
-      <div className='rowImg'>
-        <img
-          src={currImage}
-          alt="missing img"
-          onClick={() => selectHandler(currImage)}
-      />
+
       <div className="quote-container">
           <p className="quote">{quote || "no quote"}</p>
           <p className="author">{athlete || "no athlete"}</p>
