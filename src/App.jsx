@@ -81,7 +81,7 @@ export default function App() {
       />
 
       {/*<ImgCanvas imageSrc={currImage} text={quote} /> Remove this as i do not see the point, will keep this here until i have gotten the ok to totally remove it*/}
-      <button onClick={generateHandler}> Generate Quote </button>
+      <button className="generateButton " onClick={generateHandler}> Generate Quote </button>
 
       <Footer />
     </main>

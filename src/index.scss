@@ -1,6 +1,6 @@
-$primary-color-op: #04272a66;
-$primary-color: #04272a;
-$secondary-color: #38aecc;
+$primary-color-op: #474747;
+$primary-color: #000;
+$secondary-color: #lightgray;
 $bg-color: white;
 //$head-color: linear-gradient(0deg, transparent 30%, #00539c 50%, transparent 100%);
 // * Globals * //
@@ -27,7 +27,7 @@ body {
     margin: 0 auto;
 }
 
-button {
+.generateButton {
     display: block;
     margin: 0 auto 10px auto;
     background-color: $primary-color;
