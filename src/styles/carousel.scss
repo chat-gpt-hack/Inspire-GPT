@@ -3,8 +3,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    //height: 100%;
-    max-width: 80%;
+    //max-height: 60%;
+    //max-width: 80%;
 }
 
 .slides {
@@ -41,12 +41,21 @@
     bottom: 1rem;
 }
 
+.arrowButtons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    position: absolute;
+    bottom: 1rem;
+}
+
 button {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #04272a;
-    color: white;
+    background-color: transparent;
+    color: #ccc;
     border: none;
     padding: 10px;
     border-radius: 5px;
@@ -58,10 +67,19 @@ button {
     box-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
 }
 
+button:hover {
+    color: #000;
+    /* Change color to black on hover */
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.4);
+    /* Change box shadow on hover */
+}
+
 .prev-btn {
+    margin-right: auto;
     left: 1rem;
 }
 
 .next-btn {
+    margin-left: auto;
     right: 1rem;
 }
