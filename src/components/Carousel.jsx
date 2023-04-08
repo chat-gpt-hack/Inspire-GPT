@@ -18,10 +18,10 @@ return (
             alt="missing img"
             onClick={() => selectHandler(currImage)}
           />
-          <div className="quote-container">
+        {/*<div className="quote-container">
             <p className="quote">{quote || "no quote"}</p>
             <p className="author">{athlete || "no athlete"}</p>
-          </div>
+          </div>*/}
         </div>
         <img
           className="preview"
