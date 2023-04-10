@@ -5,11 +5,12 @@ import "../styles/header.scss";
 const Header = ({ title }) => {
   return (
     <header className="header">
-      <h2>
-        Get inspired with Inspirebot 3000: your personal motivational coach.
-        With our AI-generated quotes and stunning photos, you'll have the
-        inspiration you need to tackle any challenge.
-      </h2>
+      <h2>Get inspired with Inspirebot 3000</h2>
+      <p className="desc">
+        your personal motivational coach. With our AI-generated quotes and
+        stunning photos, you'll have the inspiration you need to tackle any
+        challenge.
+      </p>
     </header>
   );
 };

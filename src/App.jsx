@@ -26,7 +26,7 @@ export default function App() {
 
     // ? Image 1st since it's faster - optimize it with Promise.All later
     const inspireImgArr = await getImagesArr(randomFamousObj.sport);
-    console.log(inspireImgArr);
+    // console.log(inspireImgArr);
     setImageUrlsArr(inspireImgArr);
     setCurrImage(inspireImgArr[0]);
 
@@ -40,27 +40,6 @@ export default function App() {
 
   // * carousel stuff
   // Helpers
-  const getNextImgIdx = () => {
-    const lastIndex = imageUrlsArr.length - 1;
-    const shouldResetIndex = carrouselIndex === 0;
-    return shouldResetIndex ? lastIndex : carrouselIndex - 1;
-  };
-
-  const getPrevImgIdx = () => {
-    const lastIndex = imageUrlsArr.length - 1;
-    const shouldResetIndex = carrouselIndex === lastIndex;
-    return shouldResetIndex ? 0 : carrouselIndex + 1;
-  };
-
-  const previousSlide = () => {
-    const index = getPrevImgIdx();
-    setCarrouselIndex(index);
-  };
-
-  const nextSlide = () => {
-    const index = getNextImgIdx();
-    setCarrouselIndex(index);
-  };
 
   // fetch quote & images as soon as loads
   const didMount = useRef(false);
@@ -79,26 +58,15 @@ export default function App() {
     <main className={isLoading ? "main fade-out" : "main"}>
       <NavBar />
       <Header />
+
       <ImgCanvas imageSrc={currImage} text={quote} />
       <Carousel
-        currImage={imageUrlsArr[carrouselIndex]}
-        prevImage={
-          imageUrlsArr[
-            carrouselIndex === 0 ? imageUrlsArr.length - 1 : carrouselIndex - 1
-          ]
-        }
-        nextImage={
-          imageUrlsArr[
-            carrouselIndex === imageUrlsArr.length - 1 ? 0 : carrouselIndex + 1
-          ]
-        }
-        prevHandler={previousSlide}
-        nextHandler={nextSlide}
+        currIndex={carrouselIndex}
+        imageUrlsArr={imageUrlsArr}
         selectHandler={(imgSrc) => setCurrImage(imgSrc)}
         quote={quote}
         athlete={athlete}
       />
-
       <button className="generateButton" onClick={generateHandler}>
         Generate New Quote
         {/*    <div className="quote-container">
@@ -113,115 +81,3 @@ export default function App() {
     </main>
   );
 }
-// ! FCKIG
-// import { useEffect, useRef, useState } from "react";
-// import Header from "./components/Header";
-// import NavBar from "./components/NavBar";
-// import Footer from "./components/Footer";
-// import { getApiOrHardcodedQuote, getImagesArr } from "./utils/fetchData";
-// import famousList from "./utils/famousList";
-// import ImageOptions from "./components/ImageOptions";
-// import ImgCanvas from "./components/ImgCanvas";
-// import Carousel from "./components/Carousel";
-// import Loader from "./components/Loader";
-
-// export default function App() {
-//   const [isLoading, setIsLoading] = useState(true);
-//   const [quote, setQuote] = useState("");
-//   const [athlete, setAthlete] = useState("anonymous");
-//   const [imageUrlsArr, setImageUrlsArr] = useState([""]);
-//   const [currImage, setCurrImage] = useState("");
-//   const [carrouselIndex, setCarrouselIndex] = useState(0);
-
-//   const generateHandler = async () => {
-//     setIsLoading(true);
-
-//     // * Add a new function in utils to randomize the name
-//     const randomIndex = Math.floor(Math.random() * famousList.length);
-//     const randomFamousObj = famousList[randomIndex];
-
-//     // ? Image 1st since it's faster - optimize it with Promise.All later
-//     const inspireImgArr = await getImagesArr(randomFamousObj.sport);
-//     // console.log(inspireImgArr);
-//     setImageUrlsArr(inspireImgArr);
-//     setCurrImage(inspireImgArr[0]);
-
-//     const res = await getApiOrHardcodedQuote(randomFamousObj.name);
-//     // first item is the quote, second could be the author or nothing
-//     setQuote(res);
-//     setAthlete(randomFamousObj.name);
-
-//     setIsLoading(false);
-//   };
-
-//   // * carousel stuff
-//   // Helpers
-//   const getNextImgIdx = () => {
-//     const lastIndex = imageUrlsArr.length - 1;
-//     const shouldResetIndex = carrouselIndex === 0;
-//     return shouldResetIndex ? lastIndex : carrouselIndex - 1;
-//   };
-
-//   const getPrevImgIdx = () => {
-//     const lastIndex = imageUrlsArr.length - 1;
-//     const shouldResetIndex = carrouselIndex === lastIndex;
-//     return shouldResetIndex ? 0 : carrouselIndex + 1;
-//   };
-
-//   const previousSlide = () => {
-//     const index = getNextImgIdx();
-//     setCarrouselIndex(index);
-//   };
-
-//   const nextSlide = () => {
-//     const index = getPrevImgIdx();
-//     setCarrouselIndex(index);
-//   };
-
-//   // fetch quote & images as soon as loads
-//   const didMount = useRef(false);
-//   useEffect(() => {
-//     // extra stuff to avoid weird things on react18 (double rendering)
-//     if (!didMount.current) {
-//       didMount.current = true;
-//       // executes the function as soon as the page loads
-//       setIsLoading(true);
-//       generateHandler().then(() => setIsLoading(false));
-//     }
-//   }, []);
-
-//   return isLoading ? (
-//     <Loader />
-//   ) : (
-//     <main className={isLoading ? "main fade-out" : "main"}>
-//       <NavBar />
-//       <Header />
-
-//       <ImgCanvas imageSrc={imageUrlsArr[carrouselIndex]} text={quote} />
-//       <Carousel
-//         images={{
-//           currImage: currImage,
-//           nextImage: imageUrlsArr[getNextImgIdx()],
-//           prevImage: imageUrlsArr[getPrevImgIdx()],
-//         }}
-//         prevHandler={previousSlide}
-//         nextHandler={nextSlide}
-//         selectHandler={(imgSrc) => setCurrImage(imgSrc)}
-//         quote={quote}
-//         athlete={athlete}
-//       />
-
-//       <button className="generateButton" onClick={generateHandler}>
-//         Generate New Quote
-//         {/*    <div className="quote-container">
-//           <p className="quote">{quote || "no quote"}</p>
-//           <p className="author">{athlete || "no athlete"}</p>
-//         </div>
-//     */}
-//         {/*Generate Quote*/}
-//       </button>
-
-//       <Footer />
-//     </main>
-//   );
-// }

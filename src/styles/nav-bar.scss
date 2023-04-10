@@ -1,4 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Passion+One&display=swap");
+
+.logo,
+.title {
+  font-size: 30px;
+  align-self: center;
+  margin-right: auto;
+  padding-left: 5px;
+  color: #000000;
+  font-family: "Passion One", cursive;
+}
+.accent {
+  background: linear-gradient(to right, #f1cc11 0%, #a810c6 60%, #3c16ba 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .navBar {
   display: flex;
   background: #ffffff;

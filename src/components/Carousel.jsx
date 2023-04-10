@@ -1,17 +1,44 @@
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import "../styles/carousel.scss";
+import { useState } from "react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 export default function Carousel(props) {
-  const {
-    currImage,
-    nextImage,
-    prevImage,
-    selectHandler,
-    quote,
-    athlete,
-    nextHandler,
-    prevHandler,
-  } = props;
+  const { imageUrlsArr, selectHandler } = props;
+  const [carouselIndex, setCarouselIndex] = useState(0);
+
+  // * Helpers
+  const getNextImgIdx = () => {
+    const lastIndex = imageUrlsArr.length - 1;
+    const shouldResetIndex = carouselIndex === lastIndex;
+    const index = shouldResetIndex ? 0 : carouselIndex + 1;
+    return index;
+  };
+
+  const getPrevImgIdx = () => {
+    const lastIndex = imageUrlsArr.length - 1;
+    const shouldResetIndex = carouselIndex === 0;
+    const index = shouldResetIndex ? lastIndex : carouselIndex - 1;
+    return index;
+  };
+
+  // * logic
+  const prevIndex = getPrevImgIdx();
+  const prevImage = imageUrlsArr[prevIndex];
+  const nextIndex = getNextImgIdx();
+  const nextImage = imageUrlsArr[nextIndex];
+  const currImage = imageUrlsArr[carouselIndex];
+
+  console.log("images", prevImage, currImage, nextImage);
+
+  const prevHandler = () => {
+    const index = getPrevImgIdx();
+    setCarouselIndex(index);
+  };
+
+  const nextHandler = () => {
+    const index = getNextImgIdx();
+    setCarouselIndex(index);
+  };
 
   return (
     <section className="carousel">
@@ -28,10 +55,6 @@ export default function Carousel(props) {
             alt="missing img"
             onClick={() => selectHandler(currImage)}
           />
-          {/*<div className="quote-container">
-            <p className="quote">{quote || "no quote"}</p>
-            <p className="author">{athlete || "no athlete"}</p>
-          </div>*/}
         </div>
         <img
           className="preview"
@@ -40,14 +63,13 @@ export default function Carousel(props) {
           onClick={() => selectHandler(nextImage)}
         />
       </div>
-      <article>
-        <button onClick={prevHandler} className="prev-btn">
-          <FaChevronLeft style={{ fontSize: "500%" }} />
-        </button>
-        <button onClick={nextHandler} className="next-btn">
-          <FaChevronRight style={{ fontSize: "500%" }} />
-        </button>
-      </article>
+
+      <button onClick={prevHandler} className="prev-btn">
+        <FaChevronLeft style={{ fontSize: "500%" }} />
+      </button>
+      <button onClick={nextHandler} className="next-btn">
+        <FaChevronRight style={{ fontSize: "500%" }} />
+      </button>
     </section>
   );
 }
