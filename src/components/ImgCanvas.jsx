@@ -13,7 +13,7 @@ export default function ImgCanvas({ imageSrc, text }) {
       // Draw the image on the canvas
       ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
-      // Draw the text on the canvas
+      // Draw the background rectangle
       const lineHeight = 30; // Customize line height
       const maxWidth = canvas.width - 20; // leave some padding
       const words = text.split(' ');
@@ -31,11 +31,16 @@ export default function ImgCanvas({ imageSrc, text }) {
       });
       lines.push(line.trim());
 
-      ctx.font = "bold 24px Arial";
-      ctx.fillStyle = "white";
       const textHeight = lineHeight * lines.length;
       const ypos = (canvas.height - textHeight) / 2 + lineHeight; // center vertically
       const xpos = canvas.width / 2;
+
+      ctx.fillStyle = "rgba(255, 255, 255, 0.6)";
+      ctx.fillRect(xpos - (maxWidth / 2), ypos - lineHeight, maxWidth, textHeight + lineHeight);
+
+      // Draw the text on the canvas
+      ctx.font = "bold 24px Arial";
+      ctx.fillStyle = "black";
       lines.forEach((line, index) => {
         const lineWidth = ctx.measureText(line).width;
         ctx.fillText(line, xpos - (lineWidth / 2), ypos + (index * lineHeight));
