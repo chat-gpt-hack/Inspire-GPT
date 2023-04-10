@@ -5,7 +5,6 @@ const Footer = () => {
   return (
     <footer className='footer'>
       <ul className="footerList">
-        <li className="logo2">InspireBOT<a className="accent">3000</a></li>
         <ul className="author">
          Adan Moreno Flores 
           <li className="footItem"><a href="https://adan-portfolio.vercel.app/" target="_blank"><FaChalkboardTeacher className="brandIcon" /></a></li>
@@ -25,6 +24,9 @@ const Footer = () => {
           <li className="footItem"><a href="https://www.linkedin.com/in/zachary-franczak/" target="_blank"><FaLinkedin className="brandIcon" /></a></li>
         </ul>
       </ul>
+      <div className="logo-container">
+        <span className="logo2">InspireBOT<a className="accent">3000</a></span>
+      </div>
     </footer>
   )
 }
