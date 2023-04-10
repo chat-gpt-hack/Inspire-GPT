@@ -15,7 +15,6 @@ export default function App() {
   const [athlete, setAthlete] = useState("anonymous");
   const [imageUrlsArr, setImageUrlsArr] = useState([""]);
   const [currImage, setCurrImage] = useState("");
-  const [carrouselIndex, setCarrouselIndex] = useState(0);
 
   const generateHandler = async () => {
     setIsLoading(true);
@@ -61,11 +60,8 @@ export default function App() {
 
       <ImgCanvas imageSrc={currImage} text={quote} />
       <Carousel
-        currIndex={carrouselIndex}
         imageUrlsArr={imageUrlsArr}
         selectHandler={(imgSrc) => setCurrImage(imgSrc)}
-        quote={quote}
-        athlete={athlete}
       />
       <button className="generateButton" onClick={generateHandler}>
         Generate New Quote

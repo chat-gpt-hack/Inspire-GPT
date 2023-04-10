@@ -22,13 +22,9 @@ export default function Carousel(props) {
   };
 
   // * logic
-  const prevIndex = getPrevImgIdx();
-  const prevImage = imageUrlsArr[prevIndex];
-  const nextIndex = getNextImgIdx();
-  const nextImage = imageUrlsArr[nextIndex];
+  const prevImage = imageUrlsArr[getPrevImgIdx()];
+  const nextImage = imageUrlsArr[getNextImgIdx()];
   const currImage = imageUrlsArr[carouselIndex];
-
-  console.log("images", prevImage, currImage, nextImage);
 
   const prevHandler = () => {
     const index = getPrevImgIdx();
