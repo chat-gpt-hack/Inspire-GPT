@@ -1,9 +1,8 @@
 import React from "react";
 import "../styles/header.scss";
 
-// we need to fix the "Inspire Bot 3000" within the h2 to be with same styling as the "logo"
+// ! we need to fix the "Inspire Bot 3000" within the h2 to be with same styling as the "logo"
 const Header = ({ title }) => {
-  console.log("Header component called");
   return (
     <header className="header">
       <h2>
