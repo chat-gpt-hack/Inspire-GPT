@@ -1,6 +1,6 @@
 $primary-color-op: #474747;
 $primary-color: #000;
-$secondary-color: #lightgray;
+$secondary-color: #d6d6d6;
 $bg-color: white;
 //$head-color: linear-gradient(0deg, transparent 30%, #00539c 50%, transparent 100%);
 // * Globals * //
@@ -43,7 +43,7 @@ body {
     box-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
     transition: background-color 0.3s ease;
     &:hover {
-        background-color: rgba(240, 240, 240, 0.6);
+        background-color: #b7b5bd;
     }
 }
 
