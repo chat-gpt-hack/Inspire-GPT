@@ -25,11 +25,12 @@
     flex-direction: row;
 }
 
-.author {
+.creator {
     list-style-type: none;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    color: black;
 }
 
 .authName {}

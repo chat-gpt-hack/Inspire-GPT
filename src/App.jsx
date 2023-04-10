@@ -63,7 +63,7 @@ export default function App() {
       <NavBar />
       <Header title={"Inspire Bot 3000"} />
 
-       <Carousel
+      <Carousel
       currImage={imageUrlsArr[carrouselIndex]}
       prevImage={imageUrlsArr[carrouselIndex === 0 ? imageUrlsArr.length - 1 : carrouselIndex - 1]}
       nextImage={imageUrlsArr[carrouselIndex === imageUrlsArr.length - 1 ? 0 : carrouselIndex + 1]}
@@ -72,15 +72,15 @@ export default function App() {
       selectHandler={(imgSrc) => setCurrImage(imgSrc)}
       quote={quote}
       athlete={athlete}
-    />
+      />
 
-    <button className="generateButton" onClick={generateHandler}>
-      <div className="quote-container">
-        <p className="quote">{quote || "no quote"}</p>
-        <p className="author">{athlete || "no athlete"}</p>
-      </div>
+      <button className="generateButton" onClick={generateHandler}> Generate New Quote
+        <div className="quote-container">
+          <p className="quote">{quote || "no quote"}</p>
+          <p className="author">{athlete || "no athlete"}</p>
+        </div>
         {/*Generate Quote*/}
-    </button>
+      </button>
 
       <Footer />
     </main>
