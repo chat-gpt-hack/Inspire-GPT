@@ -1,9 +1,9 @@
-import { useRef, useCallback } from 'react';
+import { useRef, useCallback } from "react";
 
 const writeToCanvas = (src, canvas) => {
   return new Promise((res, rej) => {
     const img = new Image();
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     img.src = src;
     img.onload = function () {
       canvas.width = img.naturalWidth;
@@ -11,7 +11,7 @@ const writeToCanvas = (src, canvas) => {
       ctx.drawImage(img, 0, 0);
       canvas.toBlob((blob) => {
         res(blob);
-      }, 'image/png');
+      }, "image/png");
     };
   });
 };
@@ -31,9 +31,9 @@ const Copy = () => {
         }),
       ]);
 
-      console.log('Success');
+      console.log("Success");
     } catch (e) {
-      console.log('Copy failed: ' + e);
+      console.log("Copy failed: " + e);
     }
   }, [inputRef, canvasRef]);
 
@@ -43,7 +43,7 @@ const Copy = () => {
       <input ref={inputRef} id="url" type="text" />
       <br />
       <button onClick={handleButtonClick}>Copy image!</button>
-      <canvas ref={canvasRef} style={{ display: 'none' }} />
+      <canvas ref={canvasRef} style={{ display: "none" }} />
     </div>
   );
 };

@@ -16,15 +16,15 @@ export default function ImgCanvas({ imageSrc, text }) {
       // Draw the text on the canvas
       const lineHeight = 30; // Customize line height
       const maxWidth = canvas.width - 20; // leave some padding
-      const words = text.split(' ');
-      let line = '';
+      const words = text.split(" ");
+      let line = "";
       let lines = [];
-      words.forEach(word => {
-        const testLine = line + ' ' + word;
+      words.forEach((word) => {
+        const testLine = line + " " + word;
         const testWidth = ctx.measureText(testLine).width;
         if (testWidth > maxWidth) {
           lines.push(line.trim());
-          line = word + ' ';
+          line = word + " ";
         } else {
           line = testLine;
         }
@@ -38,7 +38,7 @@ export default function ImgCanvas({ imageSrc, text }) {
       const xpos = canvas.width / 2;
       lines.forEach((line, index) => {
         const lineWidth = ctx.measureText(line).width;
-        ctx.fillText(line, xpos - (lineWidth / 2), ypos + (index * lineHeight));
+        ctx.fillText(line, xpos - lineWidth / 2, ypos + index * lineHeight);
       });
     };
   }, [imageSrc, text]);

@@ -2,10 +2,19 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import "../styles/carousel.scss";
 
 export default function Carousel(props) {
-  const { currImage, nextImage, prevImage, selectHandler, quote, athlete, nextHandler, prevHandler } = props;
+  const {
+    currImage,
+    nextImage,
+    prevImage,
+    selectHandler,
+    quote,
+    athlete,
+    nextHandler,
+    prevHandler,
+  } = props;
 
-return (
-  <section className="carousel">
+  return (
+    <section className="carousel">
       <div className="rowImg">
         <img
           className="preview"
@@ -19,7 +28,7 @@ return (
             alt="missing img"
             onClick={() => selectHandler(currImage)}
           />
-        {/*<div className="quote-container">
+          {/*<div className="quote-container">
             <p className="quote">{quote || "no quote"}</p>
             <p className="author">{athlete || "no athlete"}</p>
           </div>*/}
