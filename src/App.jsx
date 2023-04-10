@@ -71,7 +71,7 @@ export default function App() {
     <main className={isLoading ? "main fade-out" : "main"}>
       <NavBar />
       <Header />
-
+      <ImgCanvas imageSrc={currImage} text={quote} />
       <Carousel
       currImage={imageUrlsArr[carrouselIndex]}
       prevImage={imageUrlsArr[carrouselIndex === 0 ? imageUrlsArr.length - 1 : carrouselIndex - 1]}
@@ -84,10 +84,11 @@ export default function App() {
       />
 
       <button className="generateButton" onClick={generateHandler}> Generate New Quote
-        <div className="quote-container">
+   {/*    <div className="quote-container">
           <p className="quote">{quote || "no quote"}</p>
           <p className="author">{athlete || "no athlete"}</p>
         </div>
+    */}
         {/*Generate Quote*/}
       </button>
 
