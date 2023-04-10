@@ -61,7 +61,7 @@ export default function App() {
   return (
     <main className="main">
       <NavBar />
-      <Header title={"Inspire Bot 3000"} />
+      <Header />
 
       <Carousel
       currImage={imageUrlsArr[carrouselIndex]}
