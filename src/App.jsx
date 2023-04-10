@@ -7,8 +7,10 @@ import famousList from "./utils/famousList";
 import ImageOptions from "./components/ImageOptions";
 import ImgCanvas from "./components/ImgCanvas";
 import Carousel from "./components/Carousel";
+import Loader from "./components/Loader";
 
 export default function App() {
+  const [isLoading, setIsLoading] = useState(true);
   const [quote, setQuote] = useState("");
   const [athlete, setAthlete] = useState("anonymous");
   const [imageUrlsArr, setImageUrlsArr] = useState([""]);
@@ -16,20 +18,24 @@ export default function App() {
   const [carrouselIndex, setCarrouselIndex] = useState(0);
 
     const generateHandler = async() => {
-        // * Add a new function in utils to randomize the name
-        const randomIndex = Math.floor(Math.random() * famousList.length);
-        const randomFamousObj = famousList[randomIndex];
+      setIsLoading(true);
 
-    // ? Image 1st since it's faster - optimize it with Promise.All later
-    const inspireImgArr = await getImagesArr(randomFamousObj.sport);
-    console.log(inspireImgArr);
-    setImageUrlsArr(inspireImgArr);
-    setCurrImage(inspireImgArr[0]);
+      // * Add a new function in utils to randomize the name
+      const randomIndex = Math.floor(Math.random() * famousList.length);
+      const randomFamousObj = famousList[randomIndex];
 
-    const res = await getApiOrHardcodedQuote(randomFamousObj.name);
-    // first item is the quote, second could be the author or nothing
-    setQuote(res);
-    setAthlete(randomFamousObj.name);
+      // ? Image 1st since it's faster - optimize it with Promise.All later
+      const inspireImgArr = await getImagesArr(randomFamousObj.sport);
+      console.log(inspireImgArr);
+      setImageUrlsArr(inspireImgArr);
+      setCurrImage(inspireImgArr[0]);
+
+      const res = await getApiOrHardcodedQuote(randomFamousObj.name);
+      // first item is the quote, second could be the author or nothing
+      setQuote(res);
+      setAthlete(randomFamousObj.name);
+
+      setIsLoading(false);
   };
 
   // * carousel stuff
@@ -59,6 +65,9 @@ export default function App() {
   }, []);
 
   return (
+    isLoading ? (
+      <Loader />
+    ) : (
     <main className="main">
       <NavBar />
       <Header />
@@ -84,5 +93,6 @@ export default function App() {
 
       <Footer />
     </main>
+    )
   );
 }
