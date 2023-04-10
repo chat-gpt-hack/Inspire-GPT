@@ -9,7 +9,15 @@
 }
 
 .header > h2 {
+    width: 80%;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    color: black;
+
+    @media (min-width: 700px) {
+      font-size: 2rem;
   
+}
 }
 .navBar{
   display: flexbox;
@@ -29,11 +37,4 @@
   background: linear-gradient(to right, #f1cc11 0%, #a810c6 60%, #3c16ba 100%);
   -webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
-}
-.navList {
-    list-style-type: none;
-    display: flex;
-    flex-direction: row;
-    height: 50px;
-    margin: 0;
 }
