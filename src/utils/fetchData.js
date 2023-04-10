@@ -47,10 +47,10 @@ export async function getApiOrHardcodedQuote(famousName) {
     const quoteObject = famousList.find((e) => e.name === famousName);
     const rndInt = getRandomInt(0, quoteObject.quotes.length - 1);
     quote = quoteObject.quotes[rndInt];
-    console.log(quote, quoteObject);
+    // console.log(quote, quoteObject);
     console.error("failed api key", error.mesage);
   }
-  console.log(quote);
+  // console.log(quote);
   return quote;
 }
 

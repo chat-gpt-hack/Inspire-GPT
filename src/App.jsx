@@ -15,7 +15,6 @@ export default function App() {
   const [athlete, setAthlete] = useState("anonymous");
   const [imageUrlsArr, setImageUrlsArr] = useState([""]);
   const [currImage, setCurrImage] = useState("");
-  const [carrouselIndex, setCarrouselIndex] = useState(0);
 
   const generateHandler = async () => {
     setIsLoading(true);
@@ -26,7 +25,7 @@ export default function App() {
 
     // ? Image 1st since it's faster - optimize it with Promise.All later
     const inspireImgArr = await getImagesArr(randomFamousObj.sport);
-    console.log(inspireImgArr);
+    // console.log(inspireImgArr);
     setImageUrlsArr(inspireImgArr);
     setCurrImage(inspireImgArr[0]);
 
@@ -39,19 +38,7 @@ export default function App() {
   };
 
   // * carousel stuff
-  const previousSlide = () => {
-    const lastIndex = imageUrlsArr.length - 1;
-    const shouldResetIndex = carrouselIndex === 0;
-    const index = shouldResetIndex ? lastIndex : carrouselIndex - 1;
-    setCarrouselIndex(index);
-  };
-
-  const nextSlide = () => {
-    const lastIndex = imageUrlsArr.length - 1;
-    const shouldResetIndex = carrouselIndex === lastIndex;
-    const index = shouldResetIndex ? 0 : carrouselIndex + 1;
-    setCarrouselIndex(index);
-  };
+  // Helpers
 
   // fetch quote & images as soon as loads
   const didMount = useRef(false);
@@ -70,28 +57,13 @@ export default function App() {
     <main className={isLoading ? "main fade-out" : "main"}>
       <NavBar />
       <Header />
+
       <ImgCanvas imageSrc={currImage} text={quote} />
       <Carousel
-        currImage={imageUrlsArr[carrouselIndex]}
-        prevImage={
-          imageUrlsArr[
-            carrouselIndex === 0 ? imageUrlsArr.length - 1 : carrouselIndex - 1
-          ]
-        }
-        nextImage={
-          imageUrlsArr[
-            carrouselIndex === imageUrlsArr.length - 1 ? 0 : carrouselIndex + 1
-          ]
-        }
-        prevHandler={previousSlide}
-        nextHandler={nextSlide}
+        imageUrlsArr={imageUrlsArr}
         selectHandler={(imgSrc) => setCurrImage(imgSrc)}
-        quote={quote}
-        athlete={athlete}
       />
-
       <button className="generateButton" onClick={generateHandler}>
-        {" "}
         Generate New Quote
         {/*    <div className="quote-container">
           <p className="quote">{quote || "no quote"}</p>
