@@ -1,38 +1,56 @@
 .footer {
-    top: calc(100vh - 100px);
-    background: #7184ab;
-    width: 100%;
+  top: calc(100vh - 100px);
+  background: #ffffff;
+  width: 100%;
+}
 
+.logo2 {
+  font-size: 30px;
+  align-self: center;
+  margin: 0;
+  padding-left: 5px;
+  color: #000000;
+  font-family: "Passion One", cursive;
 }
 
 .footerList {
-    list-style-type: none;
-    display: flex;
-    flex-direction: row;
-    height: 150px;
-    margin: 0;
-    padding: 0;
-    justify-content: space-around;
-    gap: 10px;
-    align-items: center;
+  list-style-type: none;
+  display: flex;
+  height: 150px;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+  flex-direction: row;
 }
 
-.author {
-    list-style-type: none;
-    display: flex;
-    flex-direction: row;
+.creator {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: black;
 }
 
 .authName {
-    
 }
 
 .footItem {
-    font-size: 20px;
+  color: #000000;
+  font-size: 20px;
+  margin: 0 5px 0 5px;
+  display: flex;
 }
 
 .brandIcon {
-//    color: linear-gradient(to right, #f1cc11 0%, #a810c6 60%, #3c16ba 100%);
-    color: whitesmoke;
+  //color: linear-gradient(to right, #f1cc11 0%, #a810c6 60%, #3c16ba 100%);
+  //color: whitesmoke;
 }
 
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 50px;
+}

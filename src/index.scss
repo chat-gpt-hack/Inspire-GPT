@@ -1,17 +1,9 @@
-$primary-color-op: #04272a66;
-$primary-color: #04272a;
-$secondary-color: #38aecc;
-$bg-color: linear-gradient(
-  315deg,
-  #21a0a0 0%,
-  #00539c 50%,
-  #00539c 70%,
-  #074a50 100%
-);
+$primary-color-op: #474747;
+$primary-color: #000;
+$secondary-color: lightgray;
+$bg-color: white;
 //$head-color: linear-gradient(0deg, transparent 30%, #00539c 50%, transparent 100%);
-
 // * Globals * //
-
 body {
   background-image: #{$bg-color};
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -35,78 +27,46 @@ body {
   margin: 0 auto;
 }
 
-.main-btn {
+.generateButton {
+  position: relative;
   display: block;
   margin: 0 auto 10px auto;
-  background-color: $primary-color;
-  color: white;
-  border: none;
-  padding: 10px 20px;
+  height: 50%;
+  width: 50%;
+  padding: 1rem;
   border-radius: 5px;
-  height: 50px;
-  width: auto;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  align-self: center;
+  background-color: rgba(240, 240, 240, 0.8);
+  color: #222;
   text-align: center;
+  font-size: 1.2rem;
+  cursor: pointer;
   box-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
-
+  transition: background-color 0.3s ease;
   &:hover {
-    background-color: darken($primary-color, 10%);
+    background-color: rgba(240, 240, 240, 0.6);
   }
 }
 
 .quote-container {
-  min-height: 10rem;
-  position: relative;
+  font-size: x-large;
+  position: absolute;
+  border-radius: 25px;
+  width: 80%;
+  height: 100%;
+  transform: translate(-50%, -50%);
   display: flex;
+  top: 50%;
+  left: 50%;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   text-align: center;
-  width: 60vw;
-  max-width: 530px;
-  margin-top: 20vw;
-  margin: 0 auto;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 25px;
+}
 
-  img {
-    width: 100%;
-    border-radius: 1rem;
-  }
-
-  .img-bg {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    min-height: 50vh;
-    min-width: 300px;
-    object-fit: cover;
-    width: 50vw;
-  }
-
-  .quote-text {
-    position: absolute;
-
-    .quote,
-    .author {
-      margin: 10% auto;
-      line-height: 1.5;
-      text-align: center;
-      padding: 10px;
-      background-color: rgba(255, 255, 255, 0.5);
-      border-radius: 5px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-      color: #222;
-      max-width: 90%;
-    }
-
-    .quote {
-      font-size: 1.5rem;
-    }
-
-    .author {
-      width: fit-content;
-      margin: 0 auto;
-    }
-  }
+.quote,
+.author {
+  margin: 15px;
 }
