@@ -59,7 +59,7 @@ export default function App() {
     // extra stuff to avoid weird things on react18 (double rendering)
     if (!didMount.current) {
       // executes the function as soon as the page loads
-      generateHandler();
+      generateHandler().then(() => setIsLoading(false));;
       didMount.current = true;
     }
   }, []);
@@ -68,7 +68,7 @@ export default function App() {
     isLoading ? (
       <Loader />
     ) : (
-    <main className="main">
+    <main className={isLoading ? "main fade-out" : "main"}>
       <NavBar />
       <Header />
 

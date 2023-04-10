@@ -13,6 +13,8 @@
     max-height: 60vh;
     object-fit: cover;
     margin: 0;
+    display: flex;
+    justify-content: center;
 }
 
 .carousel img:hover {
@@ -81,6 +83,8 @@ button:hover {
 
 .currImage-container {
     position: relative;
+    display: flex;
+    justify-content: center;
 }
 
 .preview {
