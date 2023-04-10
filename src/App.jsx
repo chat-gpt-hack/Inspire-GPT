@@ -73,14 +73,14 @@ export default function App() {
       <Header />
       <ImgCanvas imageSrc={currImage} text={quote} />
       <Carousel
-      currImage={imageUrlsArr[carrouselIndex]}
-      prevImage={imageUrlsArr[carrouselIndex === 0 ? imageUrlsArr.length - 1 : carrouselIndex - 1]}
-      nextImage={imageUrlsArr[carrouselIndex === imageUrlsArr.length - 1 ? 0 : carrouselIndex + 1]}
-      prevHandler={previousSlide}
-      nextHandler={nextSlide}
-      selectHandler={(imgSrc) => setCurrImage(imgSrc)}
-      quote={quote}
-      athlete={athlete}
+        currImage={imageUrlsArr[carrouselIndex]}
+        prevImage={imageUrlsArr[carrouselIndex === 0 ? imageUrlsArr.length - 1 : carrouselIndex - 1]}
+        nextImage={imageUrlsArr[carrouselIndex === imageUrlsArr.length - 1 ? 0 : carrouselIndex + 1]}
+        prevHandler={previousSlide}
+        nextHandler={nextSlide}
+        selectHandler={(imgSrc) => setCurrImage(imgSrc)}
+        quote={quote}
+        athlete={athlete}
       />
 
       <button className="generateButton" onClick={generateHandler}> Generate New Quote
@@ -88,7 +88,7 @@ export default function App() {
           <p className="quote">{quote || "no quote"}</p>
           <p className="author">{athlete || "no athlete"}</p>
         </div>
-    */}
+   */}
         {/*Generate Quote*/}
       </button>
 

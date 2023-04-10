@@ -7,9 +7,9 @@ const Header = ({ title }) => {
   return (
     <header className="header">
       <h2>
-        Get inspired with Inspirebot 3000: your personal motivational coach.
-        With our AI-generated quotes and stunning photos, you'll have the
-        inspiration you need to tackle any challenge.
+      Unlock your creativity and inspiration with InspireBOT3000 
+        <br></br>
+      The ultimate AI-powered source of motivation!
       </h2>
     </header>
   );

@@ -5,4 +5,3 @@ return (
       <p>Here is a section about the origin of this web app, the future and stuff</p>
     </section>
   );
-}
