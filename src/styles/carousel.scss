@@ -1,32 +1,38 @@
 .carousel {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-  }
-  
-  .carousel img {
-    width: 10rem;
-    height: 10rem;
-    object-fit:cover;
-  }
-  
-  .carousel img:hover {
-    cursor: pointer;
-  }
-  
-  .buttons {
     position: relative;
     display: flex;
+    //flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel img {
+    max-width: 80%;
+    max-height: 60vh;
+    object-fit: cover;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.carousel img:hover {
+    cursor: pointer;
+}
+
+.buttons {
+    position: absolute;
+    display: flex;
     justify-content: space-between;
-    width: 150px;
+    width: 98%; // Not necessary, you can remove this
     flex-direction: row;
     top: 50%;
     transform: translateY(-50%);
-  }
-  
-  button {
+    z-index: 2;
+}
+
+button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -35,29 +41,76 @@
     border: none;
     padding: 10px;
     border-radius: 5px;
-    height: 50px;
-    width: 50px;
     cursor: pointer;
     transition: background-color 0.3s ease;
     text-align: center;
-    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
-    margin-left: -20px;
-    margin-right: -20px;
-  }
-  
-  button:hover {
-    background-color: rgba(255, 255, 255, 0.8);
-  }
-  
-  .prev-btn {
+}
+
+button:hover {
+    background-color: rgba(196, 196, 196, 0.3);
+    border-radius: 15px;
+}
+
+.prev-btn,
+.next-btn {
     position: absolute;
-    top: 30%;
-    left: -40px;
-  }
-  
-  .next-btn {
+    background-color: transparent; // Makes the button background transparent
+    color: darkgray;
+    height: 100%; // Makes the buttons height relative to the currImage
+    width: 100px; // Sets a fixed width for the buttons
+    z-index: 2;
+    //background-color: RED; //DEBUG
+}
+
+.prev-btn {
+    left: 15%; // Position the button on the left edge of the currImage
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.next-btn {
+    right: 15%; // Position the button on the right edge of the currImage
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.rowImg {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.currImage-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.preview {
+    width: 10%;
+    opacity: 0.5;
+}
+
+
+/*.quote-container {
+    font-size: x-large;
     position: absolute;
-    top: 30%;
-    right: -40px;
-  }
-  
+    border-radius: 25px;
+    width: 80%;
+    height: 100%;
+    transform: translate(0%, -150%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 25px;
+}
+
+.quote,
+.author {
+    margin: 15px;
+}*/

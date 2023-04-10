@@ -1,47 +1,51 @@
-const img = new Image();
-const canvas = document.createElement('canvas');
-const ctx = canvas.getContext('2d');
+import { useRef, useCallback } from 'react';
 
-document.getElementById('btn').addEventListener('click', () => {
-  copyToClipboard('your-image.jpg');
-});
-
-function writeToCanvas(src) {
+const writeToCanvas = (src, canvas) => {
   return new Promise((res, rej) => {
+    const img = new Image();
+    const ctx = canvas.getContext('2d');
     img.src = src;
-    img.onload = function() {
+    img.onload = function () {
       canvas.width = img.naturalWidth;
       canvas.height = img.naturalHeight;
-      ctx.drawImage(img,0,0)
+      ctx.drawImage(img, 0, 0);
       canvas.toBlob((blob) => {
         res(blob);
       }, 'image/png');
-    }
+    };
   });
-}
-
-async function copyToClipboard(src) {
-  const image = await writeToCanvas(src);
-  try {
-    await navigator.clipboard.write([
-      new ClipboardItem({
-        [image.type]: image,
-      })
-    ]);
-
-    console.log("Success");
-  } catch(e) {
-    console.log("Copy failed: " + e);
-  }
-}
+};
 
 const Copy = () => {
-  return (
-    <>
-    <label for="url">Enter image URL: </label><input id="url" type="text"><br>
-    <button id="btn">Copy image!</button>
-    </>
-  )
-}
+  const inputRef = useRef(null);
+  const canvasRef = useRef(null);
 
-export default Copy
+  const handleButtonClick = useCallback(async () => {
+    if (!inputRef.current || !canvasRef.current) return;
+    const src = inputRef.current.value;
+    const image = await writeToCanvas(src, canvasRef.current);
+    try {
+      await navigator.clipboard.write([
+        new ClipboardItem({
+          [image.type]: image,
+        }),
+      ]);
+
+      console.log('Success');
+    } catch (e) {
+      console.log('Copy failed: ' + e);
+    }
+  }, [inputRef, canvasRef]);
+
+  return (
+    <div>
+      <label htmlFor="url">Enter image URL: </label>
+      <input ref={inputRef} id="url" type="text" />
+      <br />
+      <button onClick={handleButtonClick}>Copy image!</button>
+      <canvas ref={canvasRef} style={{ display: 'none' }} />
+    </div>
+  );
+};
+
+export default Copy;
