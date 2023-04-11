@@ -37,9 +37,6 @@ const NavBar = () => {
           <li className="navItem">
             <a href="#about" data-target="#about">About</a>
           </li>
-          <li className="navItem">
-            <a href="#more" data-target="#more">More</a>
-          </li>
         </ul>
       </div>
     </nav>
