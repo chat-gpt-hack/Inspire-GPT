@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
-import '../styles/nav-bar.scss';
-
+import "../styles/nav-bar.scss";
 
 const NavBar = () => {
   const scrollToSection = (event) => {
@@ -16,7 +15,9 @@ const NavBar = () => {
     const navItems = document.querySelectorAll(".navItem a");
     navItems.forEach((item) => item.addEventListener("click", scrollToSection));
     return () => {
-      navItems.forEach((item) => item.removeEventListener("click", scrollToSection));
+      navItems.forEach((item) =>
+        item.removeEventListener("click", scrollToSection)
+      );
     };
   }, []);
 
