@@ -7,7 +7,9 @@ const NavBar = () => {
     const targetClass = event.target.getAttribute("data-target");
     const targetElement = document.querySelector(targetClass);
     if (targetElement) {
-      targetElement.scrollIntoView({ behavior: "smooth" });
+      const navbarHeight = document.querySelector(".navBar").offsetHeight;
+      const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+      window.scrollTo({ top: targetPosition, behavior: "smooth" });
     }
   };
 
@@ -33,10 +35,7 @@ const NavBar = () => {
         </ul>
         <ul className="menuList">
           <li className="navItem">
-            <a href="#about">About</a>
-          </li>
-          <li className="navItem">
-            <a href="#more">More</a>
+            <a href="#about" data-target="#about">About</a>
           </li>
         </ul>
       </div>

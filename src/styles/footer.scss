@@ -14,6 +14,17 @@
     gap: 0.6em;
   }
 
+  .social {
+    color: rgb(220, 12, 140);
+  }
+  .social:visited {
+    color: rgb(254, 111, 199);
+  }
+
+  .social:hover {
+    color: black;
+  }
+
   .footer-list {
     justify-content: space-evenly;
     flex-wrap: wrap;
@@ -26,7 +37,7 @@
   .creator {
     border-radius: 7px;
     padding: 0.6em;
-    background-color: rgba(115, 199, 255, 0.281);
+    background-color: rgb(236, 202, 250, .5);
     justify-content: center;
     width: 20%;
     min-width: 270px;
