@@ -8,6 +8,7 @@ import ImageOptions from "./components/ImageOptions";
 import ImgCanvas from "./components/ImgCanvas";
 import Carousel from "./components/Carousel";
 import Loader from "./components/Loader";
+import QuotedImage from "./components/QuotedImage";
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -58,19 +59,14 @@ export default function App() {
       <NavBar />
       <Header />
 
-      <ImgCanvas imageSrc={currImage} text={quote} />
+      {/* <ImgCanvas imageSrc={currImage} text={quote} /> */}
+      <QuotedImage image={currImage} quote={quote} />
       <Carousel
         imageUrlsArr={imageUrlsArr}
         selectHandler={(imgSrc) => setCurrImage(imgSrc)}
       />
       <button className="generateButton" onClick={generateHandler}>
         Generate New Quote
-        {/*    <div className="quote-container">
-          <p className="quote">{quote || "no quote"}</p>
-          <p className="author">{athlete || "no athlete"}</p>
-        </div>
-    */}
-        {/*Generate Quote*/}
       </button>
 
       <Footer />

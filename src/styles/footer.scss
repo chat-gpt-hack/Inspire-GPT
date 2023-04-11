@@ -1,56 +1,37 @@
 .footer {
   top: calc(100vh - 100px);
-  background: #ffffff;
+  background: #fff;
   width: 100%;
-}
-
-.logo2 {
-  font-size: 30px;
-  align-self: center;
-  margin: 0;
-  padding-left: 5px;
-  color: #000000;
-  font-family: "Passion One", cursive;
-}
-
-.footerList {
-  list-style-type: none;
-  display: flex;
-  height: 150px;
-  margin: 0;
-  padding: 0;
-  justify-content: center;
-  gap: 10px;
-  align-items: center;
-  flex-direction: row;
-}
-
-.creator {
-  list-style-type: none;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  color: black;
-}
-
-.authName {
-}
-
-.footItem {
-  color: #000000;
-  font-size: 20px;
-  margin: 0 5px 0 5px;
-  display: flex;
-}
-
-.brandIcon {
-  //color: linear-gradient(to right, #f1cc11 0%, #a810c6 60%, #3c16ba 100%);
-  //color: whitesmoke;
-}
-
-.logo-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding-bottom: 50px;
+
+  .footer-list,
+  .creator {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+  }
+
+  .footer-list {
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    min-height: 150px;
+    padding: 0;
+    list-style-type: none;
+    // from where is the padding coming from?!!!
+  }
+
+  .creator {
+    border-radius: 7px;
+    padding: 0.6em;
+    background-color: rgba(115, 199, 255, 0.281);
+    justify-content: center;
+  }
+
+  .logo {
+    font-size: 2rem;
+    text-align: center;
+    margin: 0;
+    padding-left: 5px;
+    font-family: "Passion One", cursive;
+  }
 }
