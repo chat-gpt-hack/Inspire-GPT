@@ -10,7 +10,7 @@ import Carousel from "./components/Carousel";
 import Loader from "./components/Loader";
 import QuotedImage from "./components/QuotedImage";
 import About from './components/About';
-{/*import Hackathon from './components/Hackathon';*/}{/*Section to add if we have time*/}
+
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -76,6 +76,7 @@ export default function App() {
 
       <About />
       <Footer />
+
     </main>
   );
 }
