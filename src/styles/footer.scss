@@ -11,6 +11,11 @@
     gap: 0.6em;
   }
 
+  h4 {
+    text-align: center;
+    background-color: aquamarine;
+  }
+
   .footer-list {
     justify-content: space-evenly;
     flex-wrap: wrap;
@@ -25,13 +30,13 @@
     padding: 0.6em;
     background-color: rgba(115, 199, 255, 0.281);
     justify-content: center;
+    width: 20%;
   }
 
   .logo {
     font-size: 2rem;
     text-align: center;
     margin: 0;
-    padding-left: 5px;
     font-family: "Passion One", cursive;
   }
 }

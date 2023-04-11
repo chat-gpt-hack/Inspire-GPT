@@ -5,10 +5,7 @@ import { FaGithub, FaChalkboardTeacher, FaLinkedin } from "react-icons/fa";
 const Footer = () => {
   return (
     <footer className="footer">
-      <p className="logo">
-        InspireBOT<span className="accent">3000</span>
-      </p>
-
+      <h4>Our Team</h4>
       <ul className="footer-list">
         {creatorsData.map((creator) => (
           <li className="creator" key={creator.name}>
@@ -25,6 +22,9 @@ const Footer = () => {
           </li>
         ))}
       </ul>
+      <p className="logo">
+        InspireBOT<span className="accent">3000</span>
+      </p>
     </footer>
   );
 };

@@ -9,7 +9,7 @@ import ImgCanvas from "./components/ImgCanvas";
 import Carousel from "./components/Carousel";
 import Loader from "./components/Loader";
 import QuotedImage from "./components/QuotedImage";
-import Hackathon from './components/Hackathon';
+{/*import Hackathon from './components/Hackathon';*/}{/*Section to add if we have time*/}
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -75,7 +75,7 @@ export default function App() {
    */}
         {/*Generate Quote*/}
       </button>
-      <Hackathon />
+     {/* <Hackathon />   */}
 
       <Footer />
     </main>
