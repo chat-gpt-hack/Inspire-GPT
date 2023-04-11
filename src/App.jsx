@@ -9,6 +9,7 @@ import ImgCanvas from "./components/ImgCanvas";
 import Carousel from "./components/Carousel";
 import Loader from "./components/Loader";
 import QuotedImage from "./components/QuotedImage";
+{/*import Hackathon from './components/Hackathon';*/}{/*Section to add if we have time*/}
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -67,7 +68,14 @@ export default function App() {
       />
       <button className="generateButton" onClick={generateHandler}>
         Generate New Quote
+        {/*    <div className="quote-container">
+          <p className="quote">{quote || "no quote"}</p>
+          <p className="author">{athlete || "no athlete"}</p>
+        </div>
+   */}
+        {/*Generate Quote*/}
       </button>
+     {/* <Hackathon />   */}
 
       <Footer />
     </main>
