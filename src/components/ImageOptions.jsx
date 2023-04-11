@@ -1,4 +1,4 @@
-import "../styles/imageOptions.scss";
+import "../styles/image-options.scss";
 
 export default function ImageOptions({ imagesArr, updateCurrImage }) {
   return (
