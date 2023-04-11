@@ -64,20 +64,17 @@ export default function App() {
 
       {/* <ImgCanvas imageSrc={currImage} text={quote} /> */}
       <QuotedImage image={currImage} quote={quote} />
+
+      <button className="generateButton" onClick={generateHandler}>
+        Generate New Quote
+      </button>
+
       <Carousel
         imageUrlsArr={imageUrlsArr}
         selectHandler={(imgSrc) => setCurrImage(imgSrc)}
       />
-      <button className="generateButton" onClick={generateHandler}>
-        Generate New Quote
-        {/*    <div className="quote-container">
-          <p className="quote">{quote || "no quote"}</p>
-          <p className="author">{athlete || "no athlete"}</p>
-        </div>
-   */}
-        {/*Generate Quote*/}
-      </button>
-     {/* <Hackathon />   */}
+
+     {/* <Hackathon /> */}
       <About />
       <Footer />
     </main>
