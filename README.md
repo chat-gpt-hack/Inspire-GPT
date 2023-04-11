@@ -1,5 +1,3 @@
-# InspireBOT 3000
-
 ![InspireBOT 3000 Logo](https://www.inspirebot3000.com/external/logo.png)
 
 Get ready to experience the ultimate motivational boost! Our state-of-the-art AI-powered quote and image generator will take your inspiration to new heights. With stunning visuals and uplifting messages, you'll be unstoppable in the face of any obstacle. Let us ignite your passion and help you unleash your full potential!
