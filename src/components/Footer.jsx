@@ -5,7 +5,6 @@ import { FaGithub, FaChalkboardTeacher, FaLinkedin } from "react-icons/fa";
 const Footer = () => {
   return (
     <footer className="footer">
-      <h4>Our Team</h4>
       <ul className="footer-list">
         {creatorsData.map((creator) => (
           <li className="creator" key={creator.name}>
