@@ -1,17 +1,21 @@
-$primary-color-op: #474747;
-$primary-color: #000;
-$secondary-color: lightgray;
-$bg-color: white;
-//$head-color: linear-gradient(0deg, transparent 30%, #00539c 50%, transparent 100%);
+@import "./styles/variables.scss";
+
+// * updated vars
+// $main-bg: #fefefe;
+// $footer-icons-bg: blue;
+// $text-color: #000;
+
+// $btn-bg: blueviolet;
+// $btn-color: white;
 // * Globals * //
 body {
-  background-image: #{$bg-color};
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   display: flex;
   justify-content: center;
   min-height: 100vh;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 .main {
@@ -21,13 +25,11 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 5px;
-  //  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  //  width: 60vw;
-  margin: 0 auto;
 }
 
 img {
   width: 100%;
+  border-radius: 0.8rem;
 }
 
 .generateButton {
@@ -37,39 +39,17 @@ img {
   height: 50%;
   width: 50%;
   padding: 1rem;
-  border-radius: 5px;
-  background-color: rgba(240, 240, 240, 0.8);
-  color: #222;
+  border-radius: 0.8rem;
+  background-color: var(--btn-bg);
+  color: var(--btn);
   text-align: center;
   font-size: 1.2rem;
   cursor: pointer;
   box-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
   transition: background-color 0.3s ease;
+
   &:hover {
-    background-color: rgba(240, 240, 240, 0.6);
+    background-color: rgba(65, 65, 65, 0.6);
+    border-radius: 0.8rem;
   }
 }
-
-// .quote-container {
-//   font-size: x-large;
-//   position: absolute;
-//   border-radius: 25px;
-//   width: 80%;
-//   height: 100%;
-//   transform: translate(-50%, -50%);
-//   display: flex;
-//   top: 50%;
-//   left: 50%;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-//   text-align: center;
-//   color: white;
-//   background-color: rgba(0, 0, 0, 0.2);
-//   padding: 25px;
-// }
-
-// .quote,
-// .author {
-//   margin: 15px;
-// }

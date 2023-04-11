@@ -4,11 +4,12 @@ import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import { getApiOrHardcodedQuote, getImagesArr } from "./utils/fetchData";
 import famousList from "./utils/famousList";
-import ImageOptions from "./components/ImageOptions";
-import ImgCanvas from "./components/ImgCanvas";
 import Carousel from "./components/Carousel";
 import Loader from "./components/Loader";
 import QuotedImage from "./components/QuotedImage";
+import About from "./components/About";
+/*import Hackathon from './components/Hackathon';*/
+/*Section to add if we have time*/
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -61,19 +62,26 @@ export default function App() {
         isDarkMode ? "dark" : "white"
       }`}
     >
-      <NavBar />
+      <NavBar
+        changeMode={() => setIsDarkMode((prev) => !prev)}
+        isDarkMode={isDarkMode}
+      />
+
       <Header />
 
       {/* <ImgCanvas imageSrc={currImage} text={quote} /> */}
       <QuotedImage image={currImage} quote={quote} athlete={athlete} />
-      <Carousel
-        imageUrlsArr={imageUrlsArr}
-        selectHandler={(imgSrc) => setCurrImage(imgSrc)}
-      />
+
       <button className="generateButton" onClick={generateHandler}>
         Generate New Quote
       </button>
 
+      <Carousel
+        imageUrlsArr={imageUrlsArr}
+        selectHandler={(imgSrc) => setCurrImage(imgSrc)}
+      />
+
+      <About />
       <Footer />
     </main>
   );

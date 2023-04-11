@@ -1,27 +1,6 @@
-import React, { useEffect } from "react";
 import "../styles/nav-bar.scss";
 
-const NavBar = () => {
-  // ! wat??
-  // const scrollToSection = (event) => {
-  //   event.preventDefault();
-  //   const targetClass = event.target.getAttribute("data-target");
-  //   const targetElement = document.querySelector(targetClass);
-  //   if (targetElement) {
-  //     targetElement.scrollIntoView({ behavior: "smooth" });
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   const navItems = document.querySelectorAll(".navItem a");
-  //   navItems.forEach((item) => item.addEventListener("click", scrollToSection));
-  //   return () => {
-  //     navItems.forEach((item) =>
-  //       item.removeEventListener("click", scrollToSection)
-  //     );
-  //   };
-  // }, []);
-
+const NavBar = ({ changeMode, isDarkMode }) => {
   //TODO fix the navigation menu, it has moved.... to be fixed!
 
   return (
@@ -38,6 +17,9 @@ const NavBar = () => {
           </li>
           <li className="navItem">
             <a href="#more">More</a>
+          </li>
+          <li>
+            <button onClick={changeMode}>chg</button>
           </li>
         </ul>
       </div>
