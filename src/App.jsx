@@ -40,8 +40,19 @@ export default function App() {
     setIsLoading(false);
   };
 
-  // * carousel stuff
-  // Helpers
+  /**
+   * @dev if a value is passed the use it, if not just invert the current selection
+   */
+  const updateTheme = (value) => {
+    // the value I get from local storage is a string, thus had to be this weird
+    if (value === "true" || value === "false") {
+      setIsDarkMode(value === "true" ? true : false);
+    } else {
+      // change value with button & make it permanent with localStorage
+      window.localStorage.setItem("theme", !isDarkMode);
+      setIsDarkMode((prev) => !prev);
+    }
+  };
 
   // fetch quote & images as soon as loads
   const didMount = useRef(false);
@@ -62,17 +73,14 @@ export default function App() {
         isDarkMode ? "dark" : "white"
       }`}
     >
-      <NavBar
-        changeMode={() => setIsDarkMode((prev) => !prev)}
-        isDarkMode={isDarkMode}
-      />
+      <NavBar changeMode={updateTheme} isDarkMode={isDarkMode} />
 
       <Header />
 
       {/* <ImgCanvas imageSrc={currImage} text={quote} /> */}
       <QuotedImage image={currImage} quote={quote} athlete={athlete} />
 
-      <button className="generateButton" onClick={generateHandler}>
+      <button className="btn generate-button" onClick={generateHandler}>
         Generate New Quote
       </button>
 

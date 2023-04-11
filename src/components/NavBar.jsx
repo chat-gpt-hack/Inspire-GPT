@@ -1,6 +1,11 @@
+import { useEffect } from "react";
 import "../styles/nav-bar.scss";
 
 const NavBar = ({ changeMode, isDarkMode }) => {
+  useEffect(() => {
+    const theme = window.localStorage.getItem("theme");
+    changeMode(theme);
+  }, []);
   //TODO fix the navigation menu, it has moved.... to be fixed!
 
   return (
@@ -13,13 +18,14 @@ const NavBar = ({ changeMode, isDarkMode }) => {
         </ul>
         <ul className="menuList">
           <li className="navItem">
-            <a href="#about">About</a>
-          </li>
-          <li className="navItem">
-            <a href="#more">More</a>
+            <a href="#about" data-target="#about">
+              About
+            </a>
           </li>
           <li>
-            <button onClick={changeMode}>chg</button>
+            <button className="btn" onClick={changeMode}>
+              {isDarkMode ? "Light" : "Dark"}
+            </button>
           </li>
         </ul>
       </div>

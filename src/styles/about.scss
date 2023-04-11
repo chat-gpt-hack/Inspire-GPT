@@ -1,57 +1,55 @@
 .about {
-    background: #f6e8fc;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-    font-size: 1.5rem;
-    width: 100vw;
-
+  background: var(--bg);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 1.5rem;
+  width: 100vw;
+  margin-bottom: -15px;
 }
 .about-text {
-    width: 60%;
-    margin: 2vh auto;
-    text-align: justify;
+  width: 60%;
+  margin: 2vh auto;
+  text-align: justify;
 
-    h2 {
-        text-align: center;
-        font-family: "Passion One", cursive;
-        font-size: 3rem;
-        .accent {
-            font-size: 3rem;
-        }
+  h2 {
+    text-align: center;
+    font-family: "Passion One", cursive;
+    font-size: 3rem;
+    .accent {
+      font-size: 3rem;
     }
-    figure {
-        float: left;
-        margin: 0 1rem 1rem 0;
-        width: 150px;
-        font-size: 1rem;
-        text-align: center;
-    }
-    .link-container {
-        text-align: center;
-        clear: both;
-    }
-    a {
-        text-decoration: none;
-        color: #e81919;
-        font-size: 1.5rem;
-        &:hover {
-            padding: 4px;
-            color: #ee8383;
-            border-radius: 0.4rem;
-        }
-    }
+  }
+  figure {
+    float: left;
+    margin: 0 1rem 1rem 0;
+    width: 150px;
+    font-size: 1rem;
+    text-align: center;
+  }
+  .link-container {
+    text-align: center;
+    clear: both;
+  }
+  a {
+    text-decoration: none;
+    color: rgb(255, 44, 174);
+    font-size: 1.5rem;
 
-    
-    
+    &:hover {
+      padding: 4px;
+      color: rgb(220, 12, 140);
+      border-radius: 0.4rem;
+    }
+  }
 }
 
 @media only screen and (max-width: 800px) {
-    .about-text {
-        p {
-            clear: both;
-        }
+  .about-text {
+    p {
+      clear: both;
+    }
     figure {
       display: block;
-      margin: 0 auto;      
-     }
+      margin: 0 auto;
     }
   }
+}

@@ -2,17 +2,15 @@ import "../styles/about.scss";
 
 export default function About() {
   return (
-    <section className="about">
+    <section className="about" id="about">
       <div className="about-text">
         <h2>
-          InspireBOT <a className="accent">3000</a> & the DTD Hackathon
+          InspireBOT <span className="accent">3000</span> & the DTD Hackathon
         </h2>
         <figure>
-          <img
-            src="src\assets\img\donthedev.jpg"
-            className="don-img"
-            alt="Don the Developer"
-          />
+          <a href="https://www.donthedeveloper.tv/" target="_blank">
+            <img src="don.jpg" className="don-img" alt="Don the Developer" />
+          </a>
           <figcaption>Don the Developer</figcaption>
         </figure>
         <p>
