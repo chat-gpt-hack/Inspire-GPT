@@ -3,7 +3,8 @@ import "../styles/about.scss";
 export default function About() {
   return (
     <section className="about">
-      <h2>InspireBOT <a className='accent'>3000</a> & the DTD Hackathon</h2>
+      <h2 >InspireBOT <a className='accent'>3000</a> & the DTD Hackathon</h2>
+      <img src='src\assets\img\donthedev.jpg' className='don-img'/>
       <p>
       Our team of three junior developers participated in the recent AI-themed hackathon, where we created a motivational app using AI. 
       To generate motivational quotes, we utilized OpenAI's API and integrated it with React, JavaScript, JSX, and SCSS.  For our app, 
@@ -20,8 +21,10 @@ export default function About() {
       to utilize AI and other technologies to create a functional and unique web app. We look forward to continuing to build on our skills 
       and can't wait for the next opportunity to participate in a hackathon.
       </p>
-      <img src='src\assets\img\donthedev.jpg' className='don-img'/>
-      <a href="https://www.donthedeveloper.tv/blog/mini-hackathon-ai" target="_blank">Learn more about the Hackathon</a>
+      <div className="link-container">
+        <a href="https://www.donthedeveloper.tv/blog/mini-hackathon-ai" target="_blank">Learn more about the Hackathon</a>
+      </div>
+
     </section>
   );
 }

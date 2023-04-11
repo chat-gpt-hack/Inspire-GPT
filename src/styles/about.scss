@@ -1,9 +1,32 @@
 .about {
-    color: black;
-    width: 100%;
-    height: 100vh;
-}
-.don-img {
-    width: 10rem;
-    display: flex;
+    width: 60%;
+    margin: 5vh auto;
+    text-align: justify;
+    h2 {
+        text-align: center;
+        font-size: 2rem;
+        .accent {
+            color: #0070f3;
+            font-size: 2.6rem;
+        }
     }
+    .don-img {
+        float: left;
+        margin: 0 1rem 1rem 0;
+        width: 150px;
+    }
+    .link-container {
+        text-align: center;
+        clear: both;
+    }
+    a {
+        text-decoration: none;
+        color: #5e5e5e;
+        font-size: 1.2rem;
+        &:hover {
+            padding: 4px;
+            background-color: #e2e2e2;
+            border-radius: 0.4rem;
+        }
+    }
+}
