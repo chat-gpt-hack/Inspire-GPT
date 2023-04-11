@@ -8,6 +8,7 @@ import ImageOptions from "./components/ImageOptions";
 import ImgCanvas from "./components/ImgCanvas";
 import Carousel from "./components/Carousel";
 import Loader from "./components/Loader";
+import Hackathon from './components/Hackathon';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -72,6 +73,7 @@ export default function App() {
    */}
         {/*Generate Quote*/}
       </button>
+      <Hackathon />
 
       <Footer />
     </main>
