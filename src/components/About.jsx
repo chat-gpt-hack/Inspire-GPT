@@ -7,7 +7,7 @@ export default function About() {
         <h2 >InspireBOT <a className='accent'>3000</a> & the DTD Hackathon</h2>
         <figure>
         <a href="https://www.donthedeveloper.tv/" target="_blank">
-          <img src="src/assets/img/donthedev.jpg" className="don-img" alt="Don the Developer" />
+          <img src="/public/donthedev.jpg" className="don-img" alt="Don the Developer" />
         </a>
           <figcaption>Don the Developer</figcaption>
         </figure>
