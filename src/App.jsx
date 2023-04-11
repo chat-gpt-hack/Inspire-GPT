@@ -8,6 +8,7 @@ import ImageOptions from "./components/ImageOptions";
 import ImgCanvas from "./components/ImgCanvas";
 import Carousel from "./components/Carousel";
 import Loader from "./components/Loader";
+import QuotedImage from "./components/QuotedImage";
 import Hackathon from './components/Hackathon';
 
 export default function App() {
@@ -59,7 +60,8 @@ export default function App() {
       <NavBar />
       <Header />
 
-      <ImgCanvas imageSrc={currImage} text={quote} />
+      {/* <ImgCanvas imageSrc={currImage} text={quote} /> */}
+      <QuotedImage image={currImage} quote={quote} />
       <Carousel
         imageUrlsArr={imageUrlsArr}
         selectHandler={(imgSrc) => setCurrImage(imgSrc)}

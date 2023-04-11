@@ -1,0 +1,32 @@
+.quoted-img {
+  width: 80%;
+  margin: 0 auto;
+
+  .wrapper {
+    position: relative;
+    max-width: 45rem;
+    // max-height: 45rem;
+    margin: 0 auto;
+  }
+
+  .img {
+    height: 80vh;
+    min-height: 30em;
+    object-fit: cover;
+  }
+
+  .quote {
+    position: absolute;
+    background-color: rgba(220, 220, 220, 0.445);
+    text-shadow: 1px 1px 6px white;
+    padding: 0.5em;
+    font-size: 1.5rem;
+    border-radius: 0.3em;
+    margin: 2em;
+    bottom: 2em;
+
+    @media (max-width: 600px) {
+      font-size: 1.2rem;
+    }
+  }
+}
