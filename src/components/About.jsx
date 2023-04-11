@@ -6,7 +6,9 @@ export default function About() {
       <div className='about-text'>
         <h2 >InspireBOT <a className='accent'>3000</a> & the DTD Hackathon</h2>
         <figure>
-          <img src='src\assets\img\donthedev.jpg' className='don-img' alt='Don the Developer'/>
+        <a href="https://www.donthedeveloper.tv/" target="_blank">
+          <img src="src/assets/img/donthedev.jpg" className="don-img" alt="Don the Developer" />
+        </a>
           <figcaption>Don the Developer</figcaption>
         </figure>
         <p>

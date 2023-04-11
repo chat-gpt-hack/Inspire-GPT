@@ -37,9 +37,11 @@ img {
     margin: 0 auto 10px auto;
     height: 50%;
     width: 50%;
+    min-width: 225px;
+    max-width: 440px;
     padding: 1rem;
     border-radius: 0.8rem;
-    background-color: rgba(240, 240, 240, 0.8);
+    background-color: #f6e8fc;
     color: #222;
     text-align: center;
     font-size: 1.2rem;

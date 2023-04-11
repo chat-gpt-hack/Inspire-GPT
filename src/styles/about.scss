@@ -3,6 +3,7 @@
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     font-size: 1.5rem;
     width: 100vw;
+    margin-bottom: -15px;
 
 }
 .about-text {
@@ -24,6 +25,7 @@
         width: 150px;
         font-size: 1rem;
         text-align: center;
+        
     }
     .link-container {
         text-align: center;
@@ -31,16 +33,14 @@
     }
     a {
         text-decoration: none;
-        color: #e81919;
+        color: rgb(220, 12, 140);
         font-size: 1.5rem;
         &:hover {
             padding: 4px;
-            color: #ee8383;
+            color: black;
             border-radius: 0.4rem;
         }
     }
-
-    
     
 }
 
