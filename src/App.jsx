@@ -74,7 +74,6 @@ export default function App() {
         selectHandler={(imgSrc) => setCurrImage(imgSrc)}
       />
 
-     {/* <Hackathon /> */}
       <About />
       <Footer />
     </main>

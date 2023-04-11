@@ -5,48 +5,51 @@ $bg-color: white;
 //$head-color: linear-gradient(0deg, transparent 30%, #00539c 50%, transparent 100%);
 // * Globals * //
 body {
-  background-image: #{$bg-color};
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  display: flex;
-  justify-content: center;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
+    background-image: #{$bg-color};
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
 .main {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  justify-content: center;
-  align-items: center;
-  border-radius: 5px;
-  //  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  //  width: 60vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    //  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    //  width: 60vw;
 }
 
 img {
-  width: 100%;
+    //width: 100%;
+    //border-radius: 0.8rem;
 }
 
 .generateButton {
-  position: relative;
-  display: block;
-  margin: 0 auto 10px auto;
-  height: 50%;
-  width: 50%;
-  padding: 1rem;
-  border-radius: 5px;
-  background-color: rgba(240, 240, 240, 0.8);
-  color: #222;
-  text-align: center;
-  font-size: 1.2rem;
-  cursor: pointer;
-  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
-  transition: background-color 0.3s ease;
-  &:hover {
-    background-color: rgba(65, 65, 65, 0.6);
-  }
+    position: relative;
+    display: block;
+    margin: 0 auto 10px auto;
+    height: 50%;
+    width: 50%;
+    padding: 1rem;
+    border-radius: 0.8rem;
+    background-color: rgba(240, 240, 240, 0.8);
+    color: #222;
+    text-align: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
+    transition: background-color 0.3s ease;
+    &:hover {
+        background-color: rgba(65, 65, 65, 0.6);
+        border-radius: 0.8rem;
+    }
 }
 
 // .quote-container {
@@ -67,7 +70,6 @@ img {
 //   background-color: rgba(0, 0, 0, 0.2);
 //   padding: 25px;
 // }
-
 // .quote,
 // .author {
 //   margin: 15px;
