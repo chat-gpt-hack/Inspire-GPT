@@ -2,7 +2,7 @@ import "../styles/about.scss";
 
 export default function About() {
   return (
-    <section className="about">
+    <section className="about" id='about'>
       <div className='about-text'>
         <h2 >InspireBOT <a className='accent'>3000</a> & the DTD Hackathon</h2>
         <figure>
