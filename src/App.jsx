@@ -9,6 +9,7 @@ import ImgCanvas from "./components/ImgCanvas";
 import Carousel from "./components/Carousel";
 import Loader from "./components/Loader";
 import QuotedImage from "./components/QuotedImage";
+import About from './components/About';
 {/*import Hackathon from './components/Hackathon';*/}{/*Section to add if we have time*/}
 
 export default function App() {
@@ -58,6 +59,7 @@ export default function App() {
   ) : (
     <main className={isLoading ? "main fade-out" : "main"}>
       <NavBar />
+      
       <Header />
 
       {/* <ImgCanvas imageSrc={currImage} text={quote} /> */}
@@ -76,7 +78,7 @@ export default function App() {
         {/*Generate Quote*/}
       </button>
      {/* <Hackathon />   */}
-
+      <About />
       <Footer />
     </main>
   );
