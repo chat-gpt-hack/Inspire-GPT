@@ -84,8 +84,10 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Demo
 
-The Quote Generator
+The Quote Generator:
+
 ![](https://www.inspirebot3000.com/external/IB3K.gif)
 
-The Carousel and Image chooser
+The Carousel and Image chooser:
+
 ![](https://www.inspirebot3000.com/external/IB3KCarousel.gif)
