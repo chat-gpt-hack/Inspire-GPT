@@ -7,7 +7,6 @@ $bg-color: white;
 body {
   background-image: #{$bg-color};
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: white;
   display: flex;
   justify-content: center;
   min-height: 100vh;
@@ -25,6 +24,10 @@ body {
   //  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   //  width: 60vw;
   margin: 0 auto;
+}
+
+img {
+  width: 100%;
 }
 
 .generateButton {
@@ -47,26 +50,26 @@ body {
   }
 }
 
-.quote-container {
-  font-size: x-large;
-  position: absolute;
-  border-radius: 25px;
-  width: 80%;
-  height: 100%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  top: 50%;
-  left: 50%;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.2);
-  padding: 25px;
-}
+// .quote-container {
+//   font-size: x-large;
+//   position: absolute;
+//   border-radius: 25px;
+//   width: 80%;
+//   height: 100%;
+//   transform: translate(-50%, -50%);
+//   display: flex;
+//   top: 50%;
+//   left: 50%;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   text-align: center;
+//   color: white;
+//   background-color: rgba(0, 0, 0, 0.2);
+//   padding: 25px;
+// }
 
-.quote,
-.author {
-  margin: 15px;
-}
+// .quote,
+// .author {
+//   margin: 15px;
+// }
