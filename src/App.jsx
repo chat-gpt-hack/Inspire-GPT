@@ -16,6 +16,7 @@ export default function App() {
   const [athlete, setAthlete] = useState("anonymous");
   const [imageUrlsArr, setImageUrlsArr] = useState([""]);
   const [currImage, setCurrImage] = useState("");
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const generateHandler = async () => {
     setIsLoading(true);
@@ -55,12 +56,16 @@ export default function App() {
   return isLoading ? (
     <Loader />
   ) : (
-    <main className={isLoading ? "main fade-out" : "main"}>
+    <main
+      className={`main ${isLoading && "fade-out"} ${
+        isDarkMode ? "dark" : "white"
+      }`}
+    >
       <NavBar />
       <Header />
 
       {/* <ImgCanvas imageSrc={currImage} text={quote} /> */}
-      <QuotedImage image={currImage} quote={quote} />
+      <QuotedImage image={currImage} quote={quote} athlete={athlete} />
       <Carousel
         imageUrlsArr={imageUrlsArr}
         selectHandler={(imgSrc) => setCurrImage(imgSrc)}
