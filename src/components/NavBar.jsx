@@ -1,28 +1,11 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import "../styles/nav-bar.scss";
 
-const NavBar = () => {
-  const scrollToSection = (event) => {
-    event.preventDefault();
-    const targetClass = event.target.getAttribute("data-target");
-    const targetElement = document.querySelector(targetClass);
-    if (targetElement) {
-      const navbarHeight = document.querySelector(".navBar").offsetHeight;
-      const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
-      window.scrollTo({ top: targetPosition, behavior: "smooth" });
-    }
-  };
-
+const NavBar = ({ changeMode, isDarkMode }) => {
   useEffect(() => {
-    const navItems = document.querySelectorAll(".navItem a");
-    navItems.forEach((item) => item.addEventListener("click", scrollToSection));
-    return () => {
-      navItems.forEach((item) =>
-        item.removeEventListener("click", scrollToSection)
-      );
-    };
+    const theme = window.localStorage.getItem("theme");
+    changeMode(theme);
   }, []);
-
   //TODO fix the navigation menu, it has moved.... to be fixed!
 
   return (
@@ -35,7 +18,14 @@ const NavBar = () => {
         </ul>
         <ul className="menuList">
           <li className="navItem">
-            <a href="#about" data-target="#about">About</a>
+            <a href="#about" data-target="#about">
+              About
+            </a>
+          </li>
+          <li>
+            <button className="btn" onClick={changeMode}>
+              {isDarkMode ? "Light" : "Dark"}
+            </button>
           </li>
         </ul>
       </div>

@@ -2,7 +2,7 @@
 
 .footer {
   top: calc(100vh - 100px);
-  background: #fff;
+  background: var(--bg);
   width: 100vw;
   padding-bottom: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
@@ -15,14 +15,15 @@
   }
 
   .social {
-    color: rgb(220, 12, 140);
+    color: rgb(255, 64, 182);
   }
+
+  // cannot have black since I wan to avoid needed another var
   .social:visited {
-    color: rgb(254, 111, 199);
   }
 
   .social:hover {
-    color: black;
+    color: rgb(220, 12, 140);
   }
 
   .footer-list {
@@ -37,7 +38,7 @@
   .creator {
     border-radius: 7px;
     padding: 0.6em;
-    background-color: rgb(236, 202, 250, .5);
+    background-color: rgb(236, 202, 250, 0.5);
     justify-content: center;
     width: 20%;
     min-width: 270px;
