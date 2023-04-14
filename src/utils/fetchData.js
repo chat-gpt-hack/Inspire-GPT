@@ -17,12 +17,12 @@ async function getAPIQuote(famousName) {
 
   const response = await openai.createCompletion({
     // What dataset/model to use via the api, there are more options if we go for hugginface i think... maybe check it out.
-    model: "text-davinci-003",
+    model: "gpt-3.5-turbo",
     //The promt given to chatgpt the better the promt the better the responce should be
     prompt: `Give an inspiration quote from ${famousName} please`,
     // Temp is from 0.0 - 2.0 and you can think of it as how crazy should the text be, from moderately to craycray
-    temperature: 0.8,
-    max_tokens: 64,
+    temperature: 0.9,
+    max_tokens: 25,
     top_p: 1,
     frequency_penalty: 0,
     presence_penalty: 0,

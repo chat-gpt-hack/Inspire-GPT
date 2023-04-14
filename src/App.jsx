@@ -4,13 +4,10 @@ import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import { getApiOrHardcodedQuote, getImagesArr } from "./utils/fetchData";
 import famousList from "./utils/famousList";
-import ImageOptions from "./components/ImageOptions";
-import ImgCanvas from "./components/ImgCanvas";
 import Carousel from "./components/Carousel";
 import Loader from "./components/Loader";
 import QuotedImage from "./components/QuotedImage";
-import About from './components/About';
-{/*import Hackathon from './components/Hackathon';*/}{/*Section to add if we have time*/}
+import About from "./components/About";
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -18,6 +15,7 @@ export default function App() {
   const [athlete, setAthlete] = useState("anonymous");
   const [imageUrlsArr, setImageUrlsArr] = useState([""]);
   const [currImage, setCurrImage] = useState("");
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const generateHandler = async () => {
     setIsLoading(true);
@@ -40,8 +38,19 @@ export default function App() {
     setIsLoading(false);
   };
 
-  // * carousel stuff
-  // Helpers
+  /**
+   * @dev if a value is passed the use it, if not just invert the current selection
+   */
+  const updateTheme = (value) => {
+    // the value I get from local storage is a string, thus had to be this weird
+    if (value === "true" || value === "false") {
+      setIsDarkMode(value === "true" ? true : false);
+    } else {
+      // change value with button & make it permanent with localStorage
+      window.localStorage.setItem("theme", !isDarkMode);
+      setIsDarkMode((prev) => !prev);
+    }
+  };
 
   // fetch quote & images as soon as loads
   const didMount = useRef(false);
@@ -57,15 +66,19 @@ export default function App() {
   return isLoading ? (
     <Loader />
   ) : (
-    <main className={isLoading ? "main fade-out" : "main"}>
-      <NavBar />
-      
+    <main
+      className={`main ${isLoading && "fade-out"} ${
+        isDarkMode ? "dark" : "white"
+      }`}
+    >
+      <NavBar changeMode={updateTheme} isDarkMode={isDarkMode} />
+
       <Header />
 
       {/* <ImgCanvas imageSrc={currImage} text={quote} /> */}
-      <QuotedImage image={currImage} quote={quote} />
+      <QuotedImage image={currImage} quote={quote} athlete={athlete} />
 
-      <button className="generateButton" onClick={generateHandler}>
+      <button className="btn generate-button" onClick={generateHandler}>
         Generate New Quote
       </button>
 
@@ -76,6 +89,7 @@ export default function App() {
 
       <About />
       <Footer />
+
     </main>
   );
 }
