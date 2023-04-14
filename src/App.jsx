@@ -8,15 +8,12 @@ import Carousel from "./components/Carousel";
 import Loader from "./components/Loader";
 import QuotedImage from "./components/QuotedImage";
 import About from "./components/About";
+import { BrowserRouter } from 'react-router-dom';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const [quote, setQuote] = useState("");
-  const [athlete, setAthlete] = useState("anonymous");
   const [imageUrlsArr, setImageUrlsArr] = useState([""]);
-  const [currImage, setCurrImage] = useState("");
   const [isDarkMode, setIsDarkMode] = useState(false);
-
   const generateHandler = async () => {
     setIsLoading(true);
 
@@ -24,9 +21,8 @@ export default function App() {
     const randomIndex = Math.floor(Math.random() * famousList.length);
     const randomFamousObj = famousList[randomIndex];
 
-    // ? Image 1st since it's faster - optimize it with Promise.All later
     const inspireImgArr = await getImagesArr(randomFamousObj.sport);
-    // console.log(inspireImgArr);
+
     setImageUrlsArr(inspireImgArr);
     setCurrImage(inspireImgArr[0]);
 
@@ -63,30 +59,36 @@ export default function App() {
     }
   }, []);
 
-  return isLoading ? (
-    <Loader />
-  ) : (
-    <main
-      className={`main ${isLoading && "fade-out"} ${
-        isDarkMode ? "dark" : "white"
-      }`}
-    >
-      <NavBar changeMode={updateTheme} isDarkMode={isDarkMode} />
+  {/*isLoading ? (
+    {/*<Loader />
+  ) :*/} 
+
+  return (
+    <main className={`main ${isLoading && "fade-out"} ${isDarkMode ? "dark" : "white"}`}>
+      
+      <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="blogs" element={<Blogs />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="*" element={<NoPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+      
+      
+      
 
       <Header />
 
-      {/* <ImgCanvas imageSrc={currImage} text={quote} /> */}
-      <QuotedImage image={currImage} quote={quote} athlete={athlete} />
-
-      <button className="btn generate-button" onClick={generateHandler}>
-        Generate New Quote
-      </button>
-
-      <Carousel
+      {/*<Carousel
         imageUrlsArr={imageUrlsArr}
         selectHandler={(imgSrc) => setCurrImage(imgSrc)}
       />
-
+      <button className="btn generate-button" onClick={generateHandler}>
+        Generate New Quote
+      </button>*/}
       <About />
       <Footer />
 

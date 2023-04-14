@@ -8,15 +8,9 @@ export default function About() {
           InspireBOT <span className="accent">3000</span> & the DTD Hackathon
         </h2>
         <figure>
-<<<<<<< HEAD
-        <a href="https://www.donthedeveloper.tv/" target="_blank">
-          <img src="/public/donthedev.jpg" className="don-img" alt="Don the Developer" />
-        </a>
-=======
           <a href="https://www.donthedeveloper.tv/" target="_blank">
             <img src="don.jpg" className="don-img" alt="Don the Developer" />
           </a>
->>>>>>> main
           <figcaption>Don the Developer</figcaption>
         </figure>
         <p>

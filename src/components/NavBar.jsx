@@ -17,12 +17,9 @@ const NavBar = ({ changeMode, isDarkMode }) => {
           </li>
         </ul>
         <ul className="menuList">
+          <li className="navItem"><Link to="/">Home</Link></li>
+          <li className="navItem"><Link to="/about">About</Link></li>
           <li className="navItem">
-            <a href="#about" data-target="#about">
-              About
-            </a>
-          </li>
-          <li>
             <button className="btn" onClick={changeMode}>
               {isDarkMode ? "Light" : "Dark"}
             </button>
