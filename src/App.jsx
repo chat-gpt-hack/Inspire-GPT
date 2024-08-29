@@ -62,7 +62,7 @@ export default function App() {
       didMount.current = true;
       // stop loader after 5 seconds
       setTimeout(() => {
-        setIsLoading(false);
+         setIsLoading(false);
       }, 5000);
     }
   }, []);
@@ -90,10 +90,8 @@ export default function App() {
         imageUrlsArr={imageUrlsArr}
         selectHandler={(imgSrc) => setCurrImage(imgSrc)}
       />
-
       <About />
       <Footer />
-
     </main>
   );
 }
